@@ -1,11 +1,8 @@
 NAME = push_swap
 
 CC 	 =	clang
-
 INCLUDE = -I ./includes
-
 SOURCE = ./source/
-
 CFLAGS = -Wall -Wextra  #-Werror
 
 SRC =	$(addprefix $(SOURCE), \
