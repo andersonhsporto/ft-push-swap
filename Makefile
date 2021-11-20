@@ -5,6 +5,8 @@ INCLUDE = -I ./includes
 SOURCE = ./source/
 CFLAGS = -Wall -Wextra  #-Werror
 
+LIBFT =	-L ./libft -lft
+
 SRC =	$(addprefix $(SOURCE), \
 		push_swap.c \
 )
@@ -17,14 +19,17 @@ OBJ = $(SRC:%.c=%.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
+	make bonus -C ./libft
 	rm -rf $(NAME)
-		$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 
 clean:
+	make clean -C ./libft
 	rm -rf $(OBJ)
 	rm -rf ./a.out
 
 fclean: clean
+	make clean -C ./libft
 	rm -rf $(NAME)
 
 re: fclean all
@@ -39,6 +44,6 @@ push:fclean
 	git push
 
 c:fclean
-	rm -rf file2
-	$(CC) $(CFLAGS) $(INCLUDE) $(SRC) -o $(NAME)
+	rm -rf push_swap
+	$(CC) $(CFLAGS) $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)
 	./push_swap 0 1 2

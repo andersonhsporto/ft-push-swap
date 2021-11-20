@@ -19,4 +19,6 @@
 //REMOVER AO FINAL
 # include <stdio.h>
 
+# include "../libft/libft.h"
+
 #endif

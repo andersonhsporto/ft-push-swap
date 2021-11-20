@@ -14,6 +14,7 @@
 
 int	main(int argc, char **argv)
 {
+	ft_putstr_fd("teste\n", 1);
 	printf("%s %d\n", argv[1], argc);
 	return(0);
 }
