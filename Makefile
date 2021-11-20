@@ -40,3 +40,8 @@ push:fclean
 	read -p "Message:" message; \
 	git commit -m "$$message"; \
 	git push
+
+c:fclean
+	rm -rf file2
+	$(CC) $(CFLAGS) $(INCLUDE) $(SRC) -o $(NAME)
+	./push_swap 0 1 2

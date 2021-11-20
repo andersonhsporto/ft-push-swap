@@ -16,5 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 
+//REMOVER AO FINAL
+# include <stdio.h>
 
 #endif
