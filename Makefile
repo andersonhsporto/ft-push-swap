@@ -29,7 +29,7 @@ clean:
 	rm -rf ./a.out
 
 fclean: clean
-	make clean -C ./libft
+	make fclean -C ./libft
 	rm -rf $(NAME)
 
 re: fclean all
@@ -43,7 +43,7 @@ push:fclean
 	git commit -m "$$message"; \
 	git push
 
-c:fclean
+c:clean
 	rm -rf push_swap
 	$(CC) $(CFLAGS) $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)
 	./push_swap 0 1 2
