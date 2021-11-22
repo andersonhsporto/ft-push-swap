@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 23:09:09 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/11/20 23:09:12 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/11/22 02:01:20 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,5 @@
 int	main(int argc, char **argv)
 {
 	ft_putstr_fd("teste\n", 1);
-	printf("%s %d\n", argv[1], argc);
 	return(0);
 }
