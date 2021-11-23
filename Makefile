@@ -8,7 +8,7 @@ CFLAGS = -Wall -Wextra  #-Werror
 LIBFT =	-L ./libft -lft
 
 SRC =	$(addprefix $(SOURCE), \
-		push_swap.c \
+		push_swap.c error_utils.c \
 )
 
 .c.o:
