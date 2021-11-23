@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 22:50:53 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/11/22 23:15:59 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/11/22 23:29:36 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,15 @@
 
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
+
+enum e_operations{
+	sa,
+	sb,
+	ra,
+	rb,
+	rra,
+	rrb
+};
 
 typedef struct s_swap
 {
