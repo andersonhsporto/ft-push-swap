@@ -9,13 +9,13 @@ CFLAGS = -Wall -Wextra  #-Werror
 LIBFT =	-L ./libft -lft
 
 UTILS =	$(addprefix $(U_FOLDER), \
-		ft_atoi_error.c \
+		ft_atoi_error.c  \
+		error_utils.c free_utils.c \
 )
 
 SRC =	$(addprefix $(SOURCE), \
 		$(UTILS) \
-		push_swap.c error_utils.c check_args.c \
-		free_utils.c \
+		push_swap.c check_args.c \
 )
 
 .c.o:
@@ -43,8 +43,8 @@ re: fclean all
 
 .PHONY: all bonus clean fclean re
 
-push:fclean
-	rm -rf file2 test
+push:clean
+	rm -rf push_swap
 	git add .
 	read -p "Message:" message; \
 	git commit -m "$$message"; \
@@ -58,7 +58,7 @@ c:clean
 error:clean
 	rm -rf push_swap
 	$(CC) $(CFLAGS) $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)
-	./push_swap 1 164 2 3 2147483650
+	./push_swap 0 one 2 3
 
 valgrind:clean
 	$(CC) $(CFLAGS) -g $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)
