@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 03:06:27 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/11/24 03:15:59 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/11/24 03:26:27 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ int	ft_atoi_error(const char *str, t_swap *data)
 	{
 		number = number * 10 + (str[i] - '0');
 		i++;
-		if (number > 2147483647 && sign == 1)
+		if (number > MAX_INT && sign == 1)
 			free_exit(data);
-		if (number > 2147483648 && sign == -1)
+		if (number > MIN_INT && sign == -1)
 			free_exit(data);
 	}
 	return (sign * (int)number);
