@@ -2,7 +2,7 @@ NAME = push_swap
 
 CC 	 =	clang
 INCLUDE = -I ./includes
-SOURCE = ./source/
+S_FOLDER = ./source/
 U_FOLDER = utils/
 CFLAGS = -Wall -Wextra  #-Werror
 
@@ -13,7 +13,7 @@ UTILS =	$(addprefix $(U_FOLDER), \
 		error_utils.c free_utils.c \
 )
 
-SRC =	$(addprefix $(SOURCE), \
+SRC =	$(addprefix $(S_FOLDER), \
 		$(UTILS) \
 		push_swap.c check_args.c \
 )
