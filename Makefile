@@ -1,10 +1,11 @@
 NAME = push_swap
 
 CC 	 =	clang
+CFLAGS = -Wall -Wextra  #-Werror
 INCLUDE = -I ./includes
+
 S_FOLDER = ./source/
 U_FOLDER = utils/
-CFLAGS = -Wall -Wextra  #-Werror
 
 LIBFT =	-L ./libft -lft
 
