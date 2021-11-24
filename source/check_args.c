@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 00:21:34 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/11/24 03:17:01 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/11/24 04:36:00 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,6 @@ void	inspect_int(t_swap *data)
 		data->store.stack_a[i - 1] = ft_atoi_error(data->args.argv[i], data);
 		i++;
 	}
+	printf("%d", data->store.stack_a[0]);
 	return ;
 }
