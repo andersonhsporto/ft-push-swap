@@ -38,7 +38,7 @@ re: fclean all
 
 push:fclean
 	rm -rf file2 test
-	git
+	git add .
 	read -p "Message:" message; \
 	git commit -m "$$message"; \
 	git push
