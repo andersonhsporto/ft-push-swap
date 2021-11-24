@@ -8,7 +8,7 @@ CFLAGS = -Wall -Wextra  #-Werror
 LIBFT =	-L ./libft -lft
 
 SRC =	$(addprefix $(SOURCE), \
-		push_swap.c error_utils.c \
+		push_swap.c error_utils.c check_args.c \
 )
 
 .c.o:
@@ -19,8 +19,8 @@ OBJ = $(SRC:%.c=%.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	make bonus -C ./libft
 	rm -rf $(NAME)
+	make bonus -C ./libft
 	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 
 clean:
@@ -38,7 +38,7 @@ re: fclean all
 
 push:fclean
 	rm -rf file2 test
-	git add .
+	git
 	read -p "Message:" message; \
 	git commit -m "$$message"; \
 	git push
@@ -46,4 +46,4 @@ push:fclean
 c:clean
 	rm -rf push_swap
 	$(CC) $(CFLAGS) $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)
-	./push_swap 0 1 2
+	./push_swap
