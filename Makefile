@@ -3,12 +3,19 @@ NAME = push_swap
 CC 	 =	clang
 INCLUDE = -I ./includes
 SOURCE = ./source/
+U_FOLDER = utils/
 CFLAGS = -Wall -Wextra  #-Werror
 
 LIBFT =	-L ./libft -lft
 
+UTILS =	$(addprefix $(U_FOLDER), \
+		ft_atoi_error.c \
+)
+
 SRC =	$(addprefix $(SOURCE), \
+		$(UTILS) \
 		push_swap.c error_utils.c check_args.c \
+		free_utils.c \
 )
 
 .c.o:
@@ -46,4 +53,13 @@ push:fclean
 c:clean
 	rm -rf push_swap
 	$(CC) $(CFLAGS) $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)
-	./push_swap
+	./push_swap 1 2 3 4
+
+error:clean
+	rm -rf push_swap
+	$(CC) $(CFLAGS) $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)
+	./push_swap 1 164 2 3 2147483650
+
+valgrind:clean
+	$(CC) $(CFLAGS) -g $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)
+	valgrind --leak-check=full ./push_swap 1 164 2 3 2147483650
