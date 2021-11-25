@@ -17,6 +17,7 @@ UTILS =	$(addprefix $(U_FOLDER), \
 SRC =	$(addprefix $(S_FOLDER), \
 		$(UTILS) \
 		push_swap.c check_args.c \
+		swap.c  push.c\
 )
 
 .c.o:
@@ -42,7 +43,7 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re
+.PHONY: all bonus clean fclean re push
 
 push:clean
 	rm -rf push_swap
@@ -59,8 +60,8 @@ c:clean
 error:clean
 	rm -rf push_swap
 	$(CC) $(CFLAGS) $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)
-	./push_swap 0 one 2 3
+	./push_swap 0 2one 2 3
 
 valgrind:clean
 	$(CC) $(CFLAGS) -g $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)
-	valgrind --leak-check=full ./push_swap 1 164 2 3 2147483650
+	valgrind --leak-check=full ./push_swap 1 2 4 5

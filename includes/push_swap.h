@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 22:50:53 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/11/24 04:38:12 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/11/24 23:55:03 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@ typedef struct s_arguments
 typedef struct s_pile
 {
 	int		*stack_a;
+	int		len_stack_a;
+	int		len_stack_b;
+	int		*stack_b;
 }	t_pile;
 
 typedef struct s_swap
