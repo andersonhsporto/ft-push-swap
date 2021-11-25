@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 00:21:34 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/11/24 23:55:23 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/11/25 02:59:50 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void	init_data(t_swap *data, int argc, char **argv)
 {
 	data->args.argc = argc;
 	data->args.argv = argv;
+	data->store.len_stack_b = 1;
+	data->store.stack_b = (int *)malloc(1 * sizeof(int));
 	return ;
 }
 
