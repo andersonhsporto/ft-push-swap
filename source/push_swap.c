@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 23:09:09 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/11/27 04:16:07 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/11/27 15:49:08 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,15 @@ int	main(int argc, char **argv)
 		inspect_arg(&data, argc, argv);
 		if (data.store.stack_a[0] > data.store.stack_a[1])
 		{
+			// printf("-> %d\n",data.store.stack_a[0]);
+			// printf("-> %d\n",data.store.stack_b[0]);
 			push_a(&data);
+			// printf("-> %d\n",data.store.stack_a[0]);
+			// printf("-> %d\n",data.store.stack_b[0]);
+			free(data.store.stack_a);
+			free(data.store.stack_b);
 		}
-		free(data.store.stack_a);
-		//free(data.store.stack_b);
+		//free(data.store.stack_a);
 	}
 	return (0);
 }

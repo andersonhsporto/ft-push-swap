@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 00:21:34 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/11/25 02:59:50 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/11/27 15:27:37 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,13 +85,15 @@ void	inspect_int(t_swap *data)
 {
 	int	i;
 
-	data->store.stack_a = (int *)malloc((data->args.argc - 1) * sizeof(int));
+	data->store.stack_a = (int *)malloc((data->args.argc - 2) * sizeof(int));
 	i = 1;
-	while (data->args.argv[i])
+	while (data->args.argv[i + 1])
 	{
 		data->store.stack_a[i - 1] = ft_atoi_error(data->args.argv[i], data);
+		//printf("###%d\n", data->store.stack_a[i - 1]);
 		i++;
 	}
-	data->store.len_stack_a = i;
+	data->store.len_stack_a = i - 1;
+	//("%d = arg c\n", data->store.len_stack_a);
 	return ;
 }

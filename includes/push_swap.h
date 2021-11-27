@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 22:50:53 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/11/24 23:55:03 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/11/27 14:40:59 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,8 @@ void	free_array(void **array);
 void	free_exit(t_swap *data);
 
 int		ft_atoi_error(const char *str, t_swap *data);
+
+//operations
+void	push_a(t_swap *data);
+void	push_b(t_swap *data);
 #endif
