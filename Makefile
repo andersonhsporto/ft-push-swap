@@ -6,18 +6,22 @@ INCLUDE = -I ./includes
 
 S_FOLDER = ./source/
 U_FOLDER = utils/
+O_FOLDER = operations/
 
 LIBFT =	-L ./libft -lft
 
-UTILS =	$(addprefix $(U_FOLDER), \
+UTILS =			$(addprefix $(U_FOLDER), \
 		ft_atoi_error.c  \
 		error_utils.c free_utils.c \
 )
 
-SRC =	$(addprefix $(S_FOLDER), \
-		$(UTILS) \
+OPERATIONS =	$(addprefix $(O_FOLDER), \
+		swap.c push.c  \
+)
+
+SRC =			$(addprefix $(S_FOLDER), \
+		$(UTILS) $(OPERATIONS) \
 		push_swap.c check_args.c \
-		swap.c  push.c\
 )
 
 .c.o:
@@ -64,4 +68,4 @@ error:clean
 
 valgrind:clean
 	$(CC) $(CFLAGS) -g $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)
-	valgrind --leak-check=full ./push_swap 1 2 4 5
+	valgrind --leak-check=full ./push_swap 1 -2 3 4
