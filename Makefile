@@ -1,6 +1,6 @@
 NAME = push_swap
 
-CC 	 =	clang
+CC 	 =	gcc
 CFLAGS = -Wall -Wextra  #-Werror
 INCLUDE = -I ./includes
 
