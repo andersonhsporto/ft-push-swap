@@ -6,11 +6,20 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 23:09:09 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/11/27 15:49:08 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/11/30 01:17:08 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	init_data(t_swap *data, int argc, char **argv)
+{
+	data->args.argc = argc;
+	data->args.argv = argv;
+	data->store.len_stack_b = 1;
+	data->store.stack_b = (int *)malloc(1 * sizeof(int));
+	return ;
+}
 
 int	main(int argc, char **argv)
 {
@@ -21,15 +30,11 @@ int	main(int argc, char **argv)
 		inspect_arg(&data, argc, argv);
 		if (data.store.stack_a[0] > data.store.stack_a[1])
 		{
-			// printf("-> %d\n",data.store.stack_a[0]);
-			// printf("-> %d\n",data.store.stack_b[0]);
+			printf("%d\n", data.store.stack_a[0]);
 			push_a(&data);
-			// printf("-> %d\n",data.store.stack_a[0]);
-			// printf("-> %d\n",data.store.stack_b[0]);
 			free(data.store.stack_a);
 			free(data.store.stack_b);
 		}
-		//free(data.store.stack_a);
 	}
 	return (0);
 }
