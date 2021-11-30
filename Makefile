@@ -64,7 +64,8 @@ c:clean
 error:clean
 	rm -rf push_swap
 	$(CC) $(CFLAGS) $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)
-	./push_swap 0 2one 2 3
+	./push_swap 3 1 -2147483649
+	./push_swap 2147483648 3 1
 
 valgrind:clean
 	$(CC) $(CFLAGS) -g $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)

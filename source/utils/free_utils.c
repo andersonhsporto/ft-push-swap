@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 01:04:02 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/11/24 04:36:16 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/11/29 20:17:09 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	free_exit(t_swap *data)
 {
 	free(data->store.stack_a);
+	
 	print_error("Error\n", EXIT_FAILURE);
 	return ;
 }
