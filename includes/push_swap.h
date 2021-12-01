@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 22:50:53 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/11/30 01:43:02 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/11/30 23:14:27 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,9 @@ void	init_data(t_swap *data, int argc, char **argv);
 //operations
 void	push_a(t_swap *data);
 void	push_b(t_swap *data);
+
+//utils
+int		*copy_int_vector(int *vector, int size);
+void	add_integer(int integer, int **vector, int size);
+void	delete_integer(int **vector, int size);
 #endif

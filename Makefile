@@ -1,7 +1,7 @@
 NAME = push_swap
 
 CC 	 =	gcc
-CFLAGS = -Wall -Wextra  #-Werror
+CFLAGS = -Wall -Wextra #-Werror
 INCLUDE = -I ./includes
 
 S_FOLDER = ./source/
@@ -11,12 +11,12 @@ O_FOLDER = operations/
 LIBFT =	-L ./libft -lft
 
 UTILS =			$(addprefix $(U_FOLDER), \
-		ft_atoi_error.c  \
-		error_utils.c free_utils.c \
+		array_utils.c error_utils.c free_utils.c \
+		ft_atoi_error.c init_utils.c \
 )
 
 OPERATIONS =	$(addprefix $(O_FOLDER), \
-		swap.c push.c  \
+		swap.c push.c rotate.c \
 )
 
 SRC =			$(addprefix $(S_FOLDER), \

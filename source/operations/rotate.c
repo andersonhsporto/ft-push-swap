@@ -1,33 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/20 23:09:09 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/11/30 22:25:52 by anhigo-s         ###   ########.fr       */
+/*   Created: 2021/11/30 23:09:08 by anhigo-s          #+#    #+#             */
+/*   Updated: 2021/11/30 23:21:08 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-
-int	main(int argc, char **argv)
+void	rotate_a(t_swap *data)
 {
-	t_swap	data;
-
-	if (argc > 1)
-	{
-		inspect_arg(&data, argc, argv);
-		if (data.store.stack_a[0] > data.store.stack_a[1])
-		{
-			printf("%d\n", data.store.stack_a[0]);
-			push_a(&data);
-			free(data.store.stack_a);
-			free(data.store.stack_b);
-		}
-	}
-	return (0);
+	
 }
