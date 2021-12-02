@@ -59,7 +59,7 @@ push:clean
 c:clean
 	rm -rf push_swap
 	$(CC) $(CFLAGS) $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)
-	./push_swap 1 2 8 3 4 5
+	./push_swap 24 8 3 4 5
 
 error:clean
 	rm -rf push_swap

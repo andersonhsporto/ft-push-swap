@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 22:50:53 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/11/30 23:14:27 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/01 20:23:07 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,6 @@ void	push_b(t_swap *data);
 int		*copy_int_vector(int *vector, int size);
 void	add_integer(int integer, int **vector, int size);
 void	delete_integer(int **vector, int size);
+
+void	rotate_a(t_swap *data);
 #endif

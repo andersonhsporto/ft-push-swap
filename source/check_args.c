@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 00:21:34 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/11/30 02:13:12 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/01 20:53:18 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,12 @@ void	inspect_int(t_swap *data)
 
 	data->store.stack_a = (int *)malloc((data->args.argc - 2) * sizeof(int));
 	i = 0;
-	while (i < (data->args.argc - 2))
+	while (i < (data->args.argc - 1))
 	{
 		data->store.stack_a[i] = ft_atoi_error(data->args.argv[i + 1], data);
 		i++;
 	}
-	data->store.len_stack_a = i;
+	data->store.len_stack_a = (i - 1);
 	inspect_sort(data);
 	return ;
 }

@@ -6,13 +6,11 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 23:09:09 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/11/30 22:25:52 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/01 23:21:12 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-
 
 int	main(int argc, char **argv)
 {
@@ -23,8 +21,10 @@ int	main(int argc, char **argv)
 		inspect_arg(&data, argc, argv);
 		if (data.store.stack_a[0] > data.store.stack_a[1])
 		{
-			printf("%d\n", data.store.stack_a[0]);
-			push_a(&data);
+			//printf("%d\n", data.store.stack_a[0]);
+			rotate_a(&data);
+			rotate_a(&data);
+			//printf("%d\n", data.store.stack_a[0]);
 			free(data.store.stack_a);
 			free(data.store.stack_b);
 		}
