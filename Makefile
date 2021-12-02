@@ -16,7 +16,7 @@ UTILS =			$(addprefix $(U_FOLDER), \
 )
 
 OPERATIONS =	$(addprefix $(O_FOLDER), \
-		swap.c push.c rotate.c \
+		swap.c push.c rotate.c reverse_rotate.c \
 )
 
 SRC =			$(addprefix $(S_FOLDER), \
