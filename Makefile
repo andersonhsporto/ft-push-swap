@@ -21,7 +21,7 @@ OPERATIONS =	$(addprefix $(O_FOLDER), \
 
 SRC =			$(addprefix $(S_FOLDER), \
 		$(UTILS) $(OPERATIONS) \
-		push_swap.c check_args.c \
+		push_swap.c check_args.c check_string.c \
 )
 
 .c.o:
@@ -59,7 +59,7 @@ push:clean
 c:clean
 	rm -rf push_swap
 	$(CC) $(CFLAGS) $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)
-	./push_swap 24 8 3 4 5
+	ARG="4 67 3 87 23"; ./push_swap $ARG
 
 error:clean
 	rm -rf push_swap

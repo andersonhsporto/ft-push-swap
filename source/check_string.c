@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_args.c                                       :+:      :+:    :+:   */
+/*   check_string.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/23 00:21:34 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/02 20:36:48 by anhigo-s         ###   ########.fr       */
+/*   Created: 2021/12/02 20:00:19 by anhigo-s          #+#    #+#             */
+/*   Updated: 2021/12/02 21:12:04 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int			inspect_char(int c);
+static int	count_array(char **args);
 static void	inspect_duplicates(t_swap *data);
 static void	inspect_int(t_swap *data);
 static void	inspect_sort(t_swap *data);
 
-void	inspect_arg(t_swap *data, int argc, char **argv)
+void	inspect_string(t_swap *data, int argc, char **argv)
 {
 	int	i;
 	int	j;
 
 	init_data(data, argc, argv);
-	i = 1;
+	data->args.argv = ft_split(argv[1], ' ');
+	data->args.argc = count_array(data->args.argv);
+	i = 0;
 	while (data->args.argv[i] != 0)
 	{
 		j = 0;
@@ -41,16 +43,16 @@ void	inspect_arg(t_swap *data, int argc, char **argv)
 	return ;
 }
 
-int	inspect_char(int c)
+static int	count_array(char **args)
 {
-	if (ft_isdigit(c) || c == '-')
+	int	i;
+
+	i = 0;
+	while (args[i] != 0)
 	{
-		return (0);
+		i++;
 	}
-	else
-	{
-		return (1);
-	}
+	return (i);
 }
 
 static void	inspect_duplicates(t_swap *data)
@@ -58,7 +60,7 @@ static void	inspect_duplicates(t_swap *data)
 	int	i;
 	int	j;
 
-	i = 1;
+	i = 0;
 	while (data->args.argv[i] != 0)
 	{
 		j = i + 1;
@@ -80,11 +82,11 @@ static void	inspect_int(t_swap *data)
 {
 	int	i;
 
-	data->store.stack_a = (int *)malloc((data->args.argc - 2) * sizeof(int));
+	data->store.stack_a = (int *)malloc((data->args.argc) * sizeof(int));
 	i = 0;
-	while (i < (data->args.argc - 1))
+	while (i < (data->args.argc))
 	{
-		data->store.stack_a[i] = ft_atoi_error(data->args.argv[i + 1], data);
+		data->store.stack_a[i] = ft_atoi_error(data->args.argv[i], data);
 		i++;
 	}
 	data->store.len_stack_a = (i - 1);

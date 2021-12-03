@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 22:50:53 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/01 20:23:07 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/02 20:40:22 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct s_swap
 void	print_error(char *message, int exit_code);
 
 void	inspect_arg(t_swap *data, int argc, char **argv);
+int		inspect_char(int c);
 
 void	free_array(void **array);
 void	free_exit(t_swap *data);
@@ -71,5 +72,7 @@ int		*copy_int_vector(int *vector, int size);
 void	add_integer(int integer, int **vector, int size);
 void	delete_integer(int **vector, int size);
 
+//rotate
 void	rotate_a(t_swap *data);
+void	rotate_b(t_swap *data);
 #endif
