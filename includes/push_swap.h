@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 22:50:53 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/06 22:12:08 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/07 02:01:17 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,8 @@ enum e_status{
 	status_2,
 	status_3,
 	status_4,
-	status_5,
-	status_6
+	status_5
 };
-
 
 typedef struct s_arguments
 {
@@ -77,12 +75,29 @@ void	init_data(t_swap *data, int argc, char **argv);
 void	push_a(t_swap *data);
 void	push_b(t_swap *data);
 
+//check_string
+void	inspect_string(t_swap *data, int argc, char **argv);
+
 //utils
 int		*copy_int_vector(int *vector, int size);
 void	add_integer(int integer, int **vector, int size);
 void	delete_integer(int **vector, int size);
 
 //rotate
-void	rotate_a(t_swap *data);
-void	rotate_b(t_swap *data);
+void	rotate_a(t_swap *data, int status);
+void	rotate_b(t_swap *data, int status);
+
+//swap
+void	swap_a(t_swap *data);
+void	swap_b(t_swap *data);
+void	swap_ss(t_swap *data);
+
+//reverse_rotate
+void	reverse_rotate_a(t_swap *data, int status);
+void	reverse_rotate_b(t_swap *data, int status);
+void	reverse_rotate_r(t_swap *data);
+
+//scan
+void	scan_status(t_swap *data);
+
 #endif

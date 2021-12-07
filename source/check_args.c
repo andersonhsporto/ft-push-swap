@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 00:21:34 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/02 20:36:48 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/07 01:00:52 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ static void	inspect_int(t_swap *data)
 {
 	int	i;
 
-	data->store.stack_a = (int *)malloc((data->args.argc - 2) * sizeof(int));
+	data->store.stack_a = (int *)malloc((data->args.argc - 1) * sizeof(int));
 	i = 0;
 	while (i < (data->args.argc - 1))
 	{
@@ -97,15 +97,16 @@ static void	inspect_sort(t_swap *data)
 	int	i;
 
 	i = 0;
-	while (i < data->store.len_stack_a)
+	while (i < data->store.len_stack_a + 1)
 	{
-		if ((i < (data->store.len_stack_a - 1)) && data->store.stack_a[i]
+		if ((i < (data->store.len_stack_a)) && data->store.stack_a[i]
 			> data->store.stack_a[i + 1])
 		{
 			return ;
 		}
 		i++;
 	}
+	printf("teste\n");
 	free(data->store.stack_a);
 	free(data->store.stack_b);
 	exit(EXIT_SUCCESS);

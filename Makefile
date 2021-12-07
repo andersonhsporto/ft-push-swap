@@ -64,7 +64,11 @@ push:clean
 c:clean
 	rm -rf push_swap
 	$(CC) $(CFLAGS) $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)
-	ARG="4 67 3 87 23"; ./push_swap $ARG
+	./push_swap 2 1 3
+	./push_swap 3 2 1
+	./push_swap 3 1 2
+	./push_swap 1 3 2
+	./push_swap 2 3 1
 
 error:clean
 	rm -rf push_swap
@@ -74,4 +78,4 @@ error:clean
 
 valgrind:clean
 	$(CC) $(CFLAGS) -g $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)
-	valgrind --leak-check=full ./push_swap 1 2 3 4 5
+	valgrind --leak-check=full ./push_swap 3 2 1
