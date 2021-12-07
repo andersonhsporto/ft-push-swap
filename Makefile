@@ -4,9 +4,10 @@ CC 	 =	gcc
 CFLAGS = -Wall -Wextra #-Werror
 INCLUDE = -I ./includes
 
-S_FOLDER = ./source/
-U_FOLDER = utils/
-O_FOLDER = operations/
+S_FOLDER  = ./source/
+U_FOLDER  = utils/
+O_FOLDER  = operations/
+SO_FOLDER = sort/
 
 LIBFT =	-L ./libft -lft
 
@@ -19,8 +20,12 @@ OPERATIONS =	$(addprefix $(O_FOLDER), \
 		swap.c push.c rotate.c reverse_rotate.c \
 )
 
+SORT = $(addprefix $(SO_FOLDER), \
+		trilogy.c \
+)
+
 SRC =			$(addprefix $(S_FOLDER), \
-		$(UTILS) $(OPERATIONS) \
+		$(UTILS) $(OPERATIONS) $(SORT) \
 		push_swap.c check_args.c check_string.c \
 )
 

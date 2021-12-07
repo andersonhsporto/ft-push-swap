@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 22:50:53 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/02 20:40:22 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/06 22:12:08 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,16 @@ enum e_operations{
 	rra,
 	rrb
 };
+
+enum e_status{
+	status_1,
+	status_2,
+	status_3,
+	status_4,
+	status_5,
+	status_6
+};
+
 
 typedef struct s_arguments
 {
