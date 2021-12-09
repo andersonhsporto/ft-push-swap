@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_utils.c                                      :+:      :+:    :+:   */
+/*   scan_number.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/22 20:01:16 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/09 14:02:09 by anhigo-s         ###   ########.fr       */
+/*   Created: 2021/12/08 19:37:45 by anhigo-s          #+#    #+#             */
+/*   Updated: 2021/12/08 20:51:10 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_error(char *message, int exit_code)
+void	scan_status(t_swap *data)
 {
-	ft_putstr_fd(message, 2);
-	exit(exit_code);
-}
-
-//remover
-void	print_array(int *array, int size)
-{
-	int	i;
-
-	i = 0;
-	while (i < size)
+	if (data->args.argc <= 4)
 	{
-		printf("NUMERO:%d, POSIÇÂO I:%d\n", array[i], i);
-		i++;
+		third_number(data);
+		return ;
 	}
+	if (data->args.argc > 4)
+		worst_algo(data);
 	return ;
 }

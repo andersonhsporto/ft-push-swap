@@ -1,6 +1,6 @@
 NAME = push_swap
 
-CC 	 =	gcc
+CC 	 =	clang
 CFLAGS = -Wall -Wextra #-Werror
 INCLUDE = -I ./includes
 
@@ -12,16 +12,16 @@ SO_FOLDER = sort/
 LIBFT =	-L ./libft -lft
 
 UTILS =			$(addprefix $(U_FOLDER), \
-		array_utils.c error_utils.c free_utils.c \
+		error_utils.c free_utils.c \
 		ft_atoi_error.c init_utils.c \
 )
 
 OPERATIONS =	$(addprefix $(O_FOLDER), \
-		swap.c push.c rotate.c reverse_rotate.c \
+		push_utils.c push.c rotate.c reverse_rotate.c swap.c \
 )
 
-SORT = $(addprefix $(SO_FOLDER), \
-		trilogy.c \
+SORT = 			$(addprefix $(SO_FOLDER), \
+		algorithm.c scan_number.c trilogy.c \
 )
 
 SRC =			$(addprefix $(S_FOLDER), \
@@ -64,6 +64,14 @@ push:clean
 c:clean
 	rm -rf push_swap
 	$(CC) $(CFLAGS) $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)
+	./push_swap 3 9 4 2 8 10 444444 7
+	./push_swap 3 1 2
+	./push_swap 1 3 2
+	./push_swap 2 3 1
+
+tri:clean
+	rm -rf push_swap
+	$(CC) $(CFLAGS) $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)
 	./push_swap 2 1 3
 	./push_swap 3 2 1
 	./push_swap 3 1 2
@@ -78,4 +86,8 @@ error:clean
 
 valgrind:clean
 	$(CC) $(CFLAGS) -g $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)
-	valgrind --leak-check=full ./push_swap 3 2 1
+	valgrind --leak-check=full ./push_swap 3 9 4 2 8 10 444444 7
+
+sanitize:clean
+	$(CC) $(CFLAGS) -fsanitize=address -g $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)
+	./push_swap 3 9 4 2 8 10 444444 7

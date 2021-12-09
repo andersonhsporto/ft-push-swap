@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 20:00:19 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/02 21:12:04 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/09 01:35:14 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int	count_array(char **args)
 {
 	int	i;
 
-	i = 0;
+	i = 1;
 	while (args[i] != 0)
 	{
 		i++;
@@ -82,14 +82,14 @@ static void	inspect_int(t_swap *data)
 {
 	int	i;
 
-	data->store.stack_a = (int *)malloc((data->args.argc) * sizeof(int));
+	data->store.stack_a = (int *)malloc((data->args.argc - 1) * sizeof(int));
 	i = 0;
 	while (i < (data->args.argc))
 	{
 		data->store.stack_a[i] = ft_atoi_error(data->args.argv[i], data);
 		i++;
 	}
-	data->store.len_stack_a = (i - 1);
+	data->store.len_stack_a = (data->args.argc);
 	inspect_sort(data);
 	return ;
 }

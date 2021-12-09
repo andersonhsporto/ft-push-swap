@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 22:50:53 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/07 02:01:17 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/09 14:44:49 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 
 enum e_operations{
 	sa,
+	pa,
+	pb,
 	sb,
 	ra,
 	rb,
@@ -38,6 +40,12 @@ enum e_status{
 	status_5
 };
 
+enum e_stack{
+	stack_0,
+	a_stack,
+	b_stack,
+};
+
 typedef struct s_arguments
 {
 	int		argc;
@@ -48,15 +56,23 @@ typedef struct s_pile
 {
 	int		*stack_a;
 	int		len_stack_a;
-	int		len_stack_b;
 	int		*stack_b;
+	int		len_stack_b;
+	int		*temp_number;
 }	t_pile;
+
+typedef struct s_utils
+{
+	int		max;
+	int		min;
+}	t_utils;
 
 typedef struct s_swap
 {
 	char		**arg_string;
 	t_arguments	args;
 	t_pile		store;
+	t_utils		value;
 }	t_swap;
 
 void	print_error(char *message, int exit_code);
@@ -72,16 +88,14 @@ int		ft_atoi_error(const char *str, t_swap *data);
 void	init_data(t_swap *data, int argc, char **argv);
 
 //operations
-void	push_a(t_swap *data);
-void	push_b(t_swap *data);
+void	push(t_swap *data, int operation);
 
 //check_string
 void	inspect_string(t_swap *data, int argc, char **argv);
 
 //utils
-int		*copy_int_vector(int *vector, int size);
-void	add_integer(int integer, int **vector, int size);
-void	delete_integer(int **vector, int size);
+void	move_stack_a(t_swap *data);
+void	move_stack_b(t_swap *data);
 
 //rotate
 void	rotate_a(t_swap *data, int status);
@@ -100,4 +114,7 @@ void	reverse_rotate_r(t_swap *data);
 //scan
 void	scan_status(t_swap *data);
 
+void	third_number(t_swap *data);
+//remover
+void	print_array(int *array, int size);
 #endif
