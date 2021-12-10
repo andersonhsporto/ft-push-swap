@@ -1,6 +1,6 @@
 NAME = push_swap
 
-CC 	 =	clang
+CC 	 =	gcc
 CFLAGS = -Wall -Wextra #-Werror
 INCLUDE = -I ./includes
 
@@ -8,6 +8,8 @@ S_FOLDER  = ./source/
 U_FOLDER  = utils/
 O_FOLDER  = operations/
 SO_FOLDER = sort/
+LI_FOLDER = linked_list/
+OL_FOLDER = operation_linked/
 
 LIBFT =	-L ./libft -lft
 
@@ -24,8 +26,16 @@ SORT = 			$(addprefix $(SO_FOLDER), \
 		algorithm.c scan_number.c trilogy.c \
 )
 
+LINKED = $(addprefix $(LI_FOLDER), \
+		list_utils_aux.c list_utils.c \
+)
+
+OPERATIONS_L = $(addprefix $(OL_FOLDER), \
+		swap_list.c \
+)
+
 SRC =			$(addprefix $(S_FOLDER), \
-		$(UTILS) $(OPERATIONS) $(SORT) \
+		$(UTILS) $(OPERATIONS) $(SORT) $(LINKED) $(OPERATIONS_L)  \
 		push_swap.c check_args.c check_string.c \
 )
 
@@ -66,7 +76,7 @@ c:clean
 	$(CC) $(CFLAGS) $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)
 	./push_swap 3 9 4 2 8 10 444444 7
 	./push_swap 3 1 2
-	./push_swap 1 3 2
+	./push_swap 1 2 3 4
 	./push_swap 2 3 1
 
 tri:clean

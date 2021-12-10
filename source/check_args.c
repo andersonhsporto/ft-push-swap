@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 00:21:34 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/09 03:24:27 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/09 23:18:37 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,26 +88,23 @@ static void	inspect_int(t_swap *data)
 		i++;
 	}
 	data->store.len_stack_a = (data->args.argc - 1);
-	printf("inspect %d\n", data->store.len_stack_a);
 	inspect_sort(data);
 	return ;
 }
 
-static void	inspect_sort(t_swap *data)
+void	inspect_sort(t_swap *data)
 {
-	int	i;
+	int	index;
 
-	i = 0;
-	while (i < data->store.len_stack_a + 1)
+	index = 1;
+	while (index < data->store.len_stack_a)
 	{
-		if ((i < (data->store.len_stack_a)) && data->store.stack_a[i]
-			> data->store.stack_a[i + 1])
+		if (data->store.stack_a[index - 1] > data->store.stack_a[index])
 		{
 			return ;
 		}
-		i++;
+		index++;
 	}
-	printf("teste\n");
 	free(data->store.stack_a);
 	free(data->store.stack_b);
 	exit(EXIT_SUCCESS);

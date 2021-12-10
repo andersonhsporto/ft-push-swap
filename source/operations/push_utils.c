@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   array_utils.c                                      :+:      :+:    :+:   */
+/*   push_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 23:12:24 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/09 14:37:48 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/09 16:05:35 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,17 @@ void	move_stack_a(t_swap *data)
 	int	index;
 
 	if (data->store.len_stack_b == 0)
+	{
 		return ;
+	}
 	temp_copy(data, 1);
 	free(data->store.stack_a);
 	data->store.len_stack_a++;
 	data->store.stack_a = (int *)ft_calloc(sizeof(int), \
-	(data->store.len_stack_a));
+		(data->store.len_stack_a));
 	data->store.stack_a[0] = data->store.stack_b[0];
 	index = 0;
-	while (index < data->store.len_stack_a)
+	while (index < (data->store.len_stack_a - 1))
 	{
 		data->store.stack_a[index + 1] = data->store.temp_number[index];
 		index++;
@@ -44,11 +46,13 @@ void	move_stack_b(t_swap *data)
 	int	index;
 
 	if (data->store.len_stack_a == 0)
+	{
 		return ;
+	}
 	temp_copy(data, 2);
 	free(data->store.stack_b);
 	data->store.stack_b = (int *)ft_calloc(sizeof(int), \
-	(data->store.len_stack_b + 1));
+		(data->store.len_stack_b + 1));
 	data->store.stack_b[0] = data->store.stack_a[0];
 	index = 0;
 	while (index < data->store.len_stack_b)

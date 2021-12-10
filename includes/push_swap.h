@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 22:50:53 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/09 14:44:49 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/10 00:18:38 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,12 @@ enum e_stack{
 	a_stack,
 	b_stack,
 };
+
+typedef struct s_sort
+{
+	int				content;
+	struct s_sort	*next;
+}	t_sort;
 
 typedef struct s_arguments
 {
@@ -117,4 +123,9 @@ void	scan_status(t_swap *data);
 void	third_number(t_swap *data);
 //remover
 void	print_array(int *array, int size);
+
+//linked
+t_sort	*lstnew_int(int content);
+t_sort	*array_to_list(t_swap *data);
+void	lstadd_back_int(t_sort **lst, t_sort *new);
 #endif

@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 23:09:08 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/06 23:31:43 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/09 15:13:07 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,18 @@
 void	rotate_a(t_swap *data, int status)
 {
 	int	temp;
-	int	i;
+	int	index;
 
+	if (data->store.len_stack_a == 0)
+		return ;
 	temp = data->store.stack_a[0];
-	i = 0;
-	while (i < data->store.len_stack_a)
+	index = 0;
+	while (index < (data->store.len_stack_a - 1))
 	{
-		data->store.stack_a[i] = data->store.stack_a[i + 1];
-		i++;
+		data->store.stack_a[index] = data->store.stack_a[index + 1];
+		index++;
 	}
-	data->store.stack_a[data->store.len_stack_a] = temp;
+	data->store.stack_a[data->store.len_stack_a - 1] = temp;
 	if (status == 1)
 		ft_putstr_fd("ra\n", 1);
 	return ;
@@ -33,14 +35,14 @@ void	rotate_a(t_swap *data, int status)
 void	rotate_b(t_swap *data, int status)
 {
 	int	temp;
-	int	i;
+	int	index;
 
 	temp = data->store.stack_b[0];
-	i = 0;
-	while (i < data->store.len_stack_b)
+	index = 0;
+	while (index < data->store.len_stack_b)
 	{
-		data->store.stack_b[i] = data->store.stack_b[i + 1];
-		i++;
+		data->store.stack_b[index] = data->store.stack_b[index + 1];
+		index++;
 	}
 	data->store.stack_b[data->store.len_stack_b] = temp;
 	if (status == 1)
