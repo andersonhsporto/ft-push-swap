@@ -1,6 +1,6 @@
 NAME = push_swap
 
-CC 	 =	gcc
+CC 	 =	clang
 CFLAGS = -Wall -Wextra #-Werror
 INCLUDE = -I ./includes
 
@@ -31,7 +31,7 @@ LINKED = $(addprefix $(LI_FOLDER), \
 )
 
 OPERATIONS_L = $(addprefix $(OL_FOLDER), \
-		swap_list.c \
+		swap_list.c reverse_rotate_list.c rotate_list.c push_list.c \
 )
 
 SRC =			$(addprefix $(S_FOLDER), \

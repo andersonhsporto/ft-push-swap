@@ -6,9 +6,12 @@
 		"initializer_list": "c",
 		"utility": "c",
 		"valarray": "c",
-		"vector": "c"
+		"vector": "c",
+		"tuple": "c",
+		"chrono": "c"
 	},
 	"cSpell.words": [
 		"LIBFT"
-	]
+	],
+	"C_Cpp.errorSquiggles": "Disabled"
 }

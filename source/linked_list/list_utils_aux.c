@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 22:56:10 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/10 00:26:42 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/10 18:14:18 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,28 @@ t_sort	*array_to_list(t_swap *data)
 
 	info = lstnew_int(data->store.stack_a[0]);
 	index = 1;
-	while (index < (data->store.len_stack_a + 1))
+	while (index < (data->store.len_stack_a))
 	{
 		lstadd_back_int(&info, lstnew_int(data->store.stack_a[index]));
 		index++;
 	}
+	free(data->store.stack_a);
+	free(data->store.stack_b);
 	return (info);
+}
+
+void	printlist(t_sort *info)
+{
+	t_sort	*temp;
+
+	temp = info;
+	while (temp != NULL)
+	{
+		if (temp->next == NULL)
+			printf("%d \n", temp->content);
+		else
+			printf("%d \n", temp->content);
+		temp = temp->next;
+	}
+	return ;
 }
