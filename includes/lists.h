@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 13:07:28 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/10 18:55:16 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/11 02:48:53 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	list_rotate(t_sort **info, int status);
 void	list_rotate_rr(t_sort **stack_a, t_sort **stack_b);
 void	list_swap(t_sort *info, int status);
 void	list_swap_ss(t_sort *stack_a, t_sort *stack_b);
+
+t_sort	*lst_dup_int(t_sort *info);
 
 void	printlist(t_sort *info);
 #endif
