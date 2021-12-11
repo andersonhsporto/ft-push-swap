@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 22:56:10 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/10 18:14:18 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/10 20:03:15 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,20 @@ void	printlist(t_sort *info)
 		temp = temp->next;
 	}
 	return ;
+}
+
+int	list_is_sorted(t_sort *info)
+{
+	t_sort	*temp;
+
+	if (info == NULL)
+		return (1);
+	temp = info;
+	while (temp->next != NULL)
+	{
+		if (temp->content > temp->next->content)
+			return (0);
+		temp = temp->next;
+	}
+	return (1);
 }

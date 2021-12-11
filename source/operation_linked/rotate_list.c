@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 14:43:41 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/10 18:27:30 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/10 18:56:10 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,13 @@
 void	list_rotate(t_sort **info, int status)
 {
 	t_sort	*head;
-	t_sort	*temp;
 
 	if (lstsize_int(*info) > 1)
 	{
-		temp = *info;
+		head = *info;
 		*info = (*info)->next;
-		temp->next = NULL;
-		lstadd_back_int(info, temp);
+		head->next = NULL;
+		lstadd_back_int(info, head);
 		if (status == ra)
 			ft_putendl_fd("ra", 1);
 		if (status == rb)

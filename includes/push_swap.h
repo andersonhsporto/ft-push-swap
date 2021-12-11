@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 22:50:53 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/10 18:39:33 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/10 21:11:04 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ typedef struct s_swap
 	t_arguments	args;
 	t_pile		store;
 	t_utils		value;
+	int			max;
+	int			min;
 }	t_swap;
 
 void	print_error(char *message, int exit_code);

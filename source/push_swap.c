@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 23:09:09 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/10 18:44:14 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/10 21:10:35 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	main(int argc, char **argv)
 {
 	t_swap	data;
-	t_sort	*info;
 
 	if (argc == 2)
 	{
@@ -24,12 +23,7 @@ int	main(int argc, char **argv)
 	if (argc > 2)
 	{
 		inspect_arg(&data, argc, argv);
-		info = array_to_list(&data);
-		printlist(info);
-		printf("###################\n");
-		list_rotate_reverse(&info, ra);
-		printlist(info);
-		printf("###################\n");
+		scan_status(&data);
 	}
 	return (0);
 }

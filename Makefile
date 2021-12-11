@@ -1,12 +1,12 @@
 NAME = push_swap
 
-CC 	 =	clang
-CFLAGS = -Wall -Wextra #-Werror
-INCLUDE = -I ./includes
+CC		=	gcc
+CFLAGS	=	-Wall -Wextra #-Werror
+INCLUDE =	-I ./includes
 
 S_FOLDER  = ./source/
 U_FOLDER  = utils/
-O_FOLDER  = operations/
+O_FOLDER  = operations_array/
 SO_FOLDER = sort/
 LI_FOLDER = linked_list/
 OL_FOLDER = operation_linked/
@@ -27,7 +27,7 @@ SORT = 			$(addprefix $(SO_FOLDER), \
 )
 
 LINKED = $(addprefix $(LI_FOLDER), \
-		list_utils_aux.c list_utils.c \
+		list_scan_utils.c list_utils_aux.c list_utils.c \
 )
 
 OPERATIONS_L = $(addprefix $(OL_FOLDER), \
@@ -74,7 +74,7 @@ push:clean
 c:clean
 	rm -rf push_swap
 	$(CC) $(CFLAGS) $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)
-	./push_swap 3 9 4 2 8 10 444444 7
+	./push_swap 100 2 4 8 9 | wc -l
 	./push_swap 3 1 2
 	./push_swap 1 2 3 4
 	./push_swap 2 3 1
