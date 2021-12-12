@@ -27,7 +27,7 @@ SORT = 			$(addprefix $(SO_FOLDER), \
 )
 
 LINKED = $(addprefix $(LI_FOLDER), \
-		list_scan_utils.c list_utils_aux.c list_utils.c \
+		basic_functions_aux.c basic_functions.c list_scan_utils.c \
 )
 
 OPERATIONS_L = $(addprefix $(OL_FOLDER), \
@@ -74,11 +74,8 @@ push:clean
 c:clean
 	rm -rf push_swap
 	$(CC) $(CFLAGS) $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)
-	./push_swap 100 2 4 8 9
-	./push_swap 3 1 2
-	./push_swap 1 2 3 4
-	./push_swap 2 3 1
-
+	./push_swap 5 8 4 2 3
+	
 tri:clean
 	rm -rf push_swap
 	$(CC) $(CFLAGS) $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)

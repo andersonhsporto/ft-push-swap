@@ -8,7 +8,8 @@
 		"valarray": "c",
 		"vector": "c",
 		"tuple": "c",
-		"chrono": "c"
+		"chrono": "c",
+		"list": "c"
 	},
 	"cSpell.words": [
 		"LIBFT"

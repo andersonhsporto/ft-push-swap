@@ -6,29 +6,11 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 20:21:33 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/11 03:02:22 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/11 21:35:32 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	find_midean(t_sort *info)
-{
-	t_sort	*temp;
-	int		size;
-	int		index;
-
-	temp = info;
-	size = lstsize_int(info);
-	index = 0;
-	size = size / 2;
-	while (index < size)
-	{
-		temp = temp->next;
-		index++;
-	}
-	return (temp->content);
-}
 
 t_sort	*lst_dup_int(t_sort *info)
 {
@@ -42,13 +24,37 @@ t_sort	*lst_dup_int(t_sort *info)
 	return (copy);
 }
 
+int	find_median(t_sort *info)
+{
+	t_sort	*temp_list;
+	t_sort	*node;
+	int		index;
+
+	temp_list = lst_dup_int(info);
+	list_bubble_sort(&temp_list);
+	node = NULL;
+	index = 0;
+	while (index < (lstsize_int(info) / 2))
+	{
+		node = temp_list;
+		temp_list = temp_list->next;
+		index++;
+	}
+	if ((lstsize_int(info) % 2) != 0)
+		index = node->next->content;
+	if ((lstsize_int(info) % 2) == 0)
+		index = ((node->content + node->next->content) / 2);
+	lstdelete_int(&temp_list);
+	return (index);
+}
+
 void	list_bubble_sort(t_sort **info)
 {
 	t_sort	*newlist;
 	t_sort	*index;
 	int		temp;
 
-	newlist = info;
+	newlist = *info;
 	index = NULL;
 	temp = 0;
 	if (info == NULL)

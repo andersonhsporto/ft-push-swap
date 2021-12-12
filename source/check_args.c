@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 00:21:34 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/09 23:18:37 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/11 20:57:26 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	inspect_sort(t_swap *data)
 	int	index;
 
 	index = 1;
-	while (index < data->store.len_stack_a)
+	while (index < (data->store.len_stack_a))
 	{
 		if (data->store.stack_a[index - 1] > data->store.stack_a[index])
 		{
