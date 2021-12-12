@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 22:50:53 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/11 02:07:30 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/12 17:17:17 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,31 @@
 //REMOVER AO FINAL
 # include <stdio.h>
 
-# include "../libft/libft.h"
-
 # include "lists.h"
+
+# include "../libft/libft.h"
 
 # define MAX_INT 2147483647
 # define MIN_INT 2147483648
 
-enum e_operations{
+enum e_swap{
 	sa,
 	sb,
-	ss,
+	ss
+};
+
+enum e_push{
 	pa,
-	pb,
+	pb
+};
+
+enum e_rotate{
 	ra,
 	rb,
-	rr,
+	rr
+};
+
+enum e_rrotate{
 	rra,
 	rrb,
 	rrr
@@ -43,6 +52,11 @@ enum e_status{
 	status_3,
 	status_4,
 	status_5
+};
+
+enum e_stack_status{
+	e_stack_a,
+	e_stack_b
 };
 
 enum e_stack{

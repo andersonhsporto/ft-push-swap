@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 20:21:33 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/11 21:35:32 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/12 15:04:01 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,4 +94,28 @@ void	scan_list(t_sort *info, t_swap *data)
 		temp = temp->next;
 	}
 	return ;
+}
+
+t_sort	*array_to_list(t_swap *data)
+{
+	t_sort	*info;
+	int		index;
+
+	info = lstnew_int(data->store.stack_a[0]);
+	index = 1;
+	data->min = data->store.stack_a[0];
+	data->max = data->store.stack_a[0];
+	while (index < (data->store.len_stack_a))
+	{
+		lstadd_back_int(&info, lstnew_int(data->store.stack_a[index]));
+		if (data->max > data->store.stack_a[index])
+			data->max = data->store.stack_a[index];
+		if (data->min < data->store.stack_a[index])
+			data->min = data->store.stack_a[index];
+		index++;
+	}
+	data->median = find_median(info);
+	free(data->store.stack_a);
+	free(data->store.stack_b);
+	return (info);
 }

@@ -6,57 +6,73 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 22:08:57 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/10 20:17:19 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/12 17:16:27 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	continue_third_number(t_swap *data);
+void	continue_sort_three(t_sort **list, int status);
+void	sort_three(t_sort **list, int status);
 
-void	third_number(t_swap *data)
+void	simple_algo(t_swap *data, int status)
 {
-	if (data->args.argc == 3)
-	{
-		ft_putendl_fd("sa", 1);
-		return ;
-	}
-	if (data->store.stack_a[0] > data->store.stack_a[1] && \
-		data->store.stack_a[2] > data->store.stack_a[1] && \
-		data->store.stack_a[2] > data->store.stack_a[0])
-	{
-		ft_putendl_fd("sa", 1);
-	}
-	if (data->store.stack_a[0] > data->store.stack_a[1] && \
-		data->store.stack_a[1] > data->store.stack_a[2] && \
-		data->store.stack_a[2] < data->store.stack_a[0])
-	{
-		ft_putendl_fd("sa", 1);
-		ft_putendl_fd("rra", 1);
-	}
-	continue_third_number(data);
+	t_sort	*stack_a;
+
+	stack_a = array_to_list(data);
+	sort_three(&stack_a, e_stack_a);
+	return ;
 }
 
-void	continue_third_number(t_swap *data)
+void	sort_three(t_sort **list, int status)
 {
-	if (data->store.stack_a[0] < data->store.stack_a[1] && \
-		data->store.stack_a[1] > data->store.stack_a[2] && \
-		data->store.stack_a[2] < data->store.stack_a[0])
+	t_sort	*temp;
+
+	temp = *list;
+	if (temp->content > temp->next->content && \
+		temp->next->next->content > temp->next->content && \
+		temp->next->next->content > temp->content)
 	{
-		ft_putendl_fd("rra", 1);
+		list_swap(*list, status);
 	}
-	if (data->store.stack_a[0] < data->store.stack_a[1] && \
-		data->store.stack_a[1] > data->store.stack_a[2] && \
-		data->store.stack_a[2] > data->store.stack_a[0])
+	else if (temp->content > temp->next->content && \
+		temp->next->content > temp->next->next->content && \
+		temp->next->next->content < temp->content)
 	{
-		ft_putendl_fd("sa", 1);
-		ft_putendl_fd("ra", 1);
+		list_swap(*list, status);
+		list_rotate(&(*list), status);
 	}
-	if (data->store.stack_a[0] > data->store.stack_a[1] && \
-		data->store.stack_a[1] < data->store.stack_a[2] && \
-		data->store.stack_a[2] < data->store.stack_a[0])
+	else if (temp->content < temp->next->content && \
+		temp->next->content > temp->next->next->content && \
+		temp->next->next->content < temp->content)
+		list_rotate_reverse(&(*list), status);
+	else
+		continue_sort_three(&list, status);
+	return ;
+}
+
+void	continue_sort_three(t_sort **list, int status)
+{
+	t_sort	*temp;
+
+	temp = *list;
+	if (temp->content < temp->next->content && \
+		temp->next->content > temp->next->next->content && \
+		temp->next->next->content > temp->content)
 	{
-		ft_putendl_fd("ra", 1);
+		list_swap(*list, status);
+		list_rotate(&(*list), status);
 	}
+	else if (temp->content > temp->next->content && \
+			temp->next->content > temp->next->next->content && \
+			temp->next->next->content < temp->content)
+	{
+		list_swap(*list, status);
+		list_rotate(&(*list), status);
+	}
+	else if (temp->content > temp->next->content && \
+			temp->next->content < temp->next->next->content && \
+			temp->next->next->content < temp->content)
+		list_rotate(&(*list), status);
 	return ;
 }

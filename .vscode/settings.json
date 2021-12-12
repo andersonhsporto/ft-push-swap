@@ -9,7 +9,8 @@
 		"vector": "c",
 		"tuple": "c",
 		"chrono": "c",
-		"list": "c"
+		"list": "c",
+		"push_swap.h": "c"
 	},
 	"cSpell.words": [
 		"LIBFT"
