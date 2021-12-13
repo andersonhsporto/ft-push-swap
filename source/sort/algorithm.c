@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 19:47:20 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/12 20:11:36 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/13 03:12:59 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,34 @@ void	worst_algo(t_swap *data)
 	return ;
 }
 
+void	reverse_sort_stack(t_sort **list, int status)
+{
+	t_sort	*temp;
+	t_sort	*last;
+
+	temp = *list;
+	last = lstlast_int(*list);
+	while (list_is_sorted(*list, 2) == 0)
+	{
+		if (temp->content < temp->next->content && \
+			temp->next->content > last->content)
+		{
+			list_swap(*list, status);
+			list_rotate(&(*list), status);
+		}
+		else if (temp->content < temp->next->content && \
+			temp->next->content < last->content)
+		{
+			list_swap(*list, status);
+		}
+		else if (temp->content > temp->next->content)
+			list_rotate_reverse(&(*list), status);
+		temp = *list;
+		last = lstlast_int(temp);
+	}
+	return ;
+}
+
 void	sort_stack(t_sort **list, int status)
 {
 	t_sort	*temp;
@@ -61,8 +89,8 @@ void	sort_stack(t_sort **list, int status)
 		{
 			list_swap(*list, status);
 		}
-		else if (temp->content > temp->next->content && temp->content > \
-		temp->next->next->content)
+		else if (temp->content > temp->next->content && \
+				temp->content > temp->next->next->content)
 		{
 			list_swap(*list, status);
 			list_rotate(&(*list), status);
@@ -94,7 +122,8 @@ void	least_worst_algo(t_swap *data)
 			}
 			list_rotate(&stack_a, ra);
 		}
-		sort_stack(&stack_a, e_stack_a);
+		sort_three(&stack_a, e_stack_a);
+		printf("teste\n");
 		while (stack_b != NULL)
 		{
 			sort_stack(&stack_b, e_stack_b);
@@ -102,6 +131,6 @@ void	least_worst_algo(t_swap *data)
 			list_push(&stack_b, &stack_a, pa);
 		}
 	}
-	// printlist(stack_a);
+	//printlist(stack_a);
 	return ;
 }

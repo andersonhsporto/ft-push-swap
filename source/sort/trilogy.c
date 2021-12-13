@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 22:08:57 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/12 17:16:27 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/13 03:33:47 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,7 @@ void	sort_three(t_sort **list, int status)
 		temp->next->next->content < temp->content)
 		list_rotate_reverse(&(*list), status);
 	else
-		continue_sort_three(&list, status);
-	return ;
+		continue_sort_three(&(*list), status);
 }
 
 void	continue_sort_three(t_sort **list, int status)
