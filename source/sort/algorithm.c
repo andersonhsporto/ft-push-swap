@@ -6,26 +6,11 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 19:47:20 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/13 03:12:59 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/13 14:37:11 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	test_algo(t_swap *data)
-{
-	t_sort	*stack_a;
-	t_sort	*stack_b;
-
-	stack_a = array_to_list(data);
-	while (!list_is_sorted(stack_a))
-	{
-		list_rotate(&stack_a, ra);
-		list_rotate(&stack_a, ra);
-		list_swap(stack_a, sa);
-	}
-	return ;
-}
 
 void	worst_algo(t_swap *data)
 {
@@ -55,6 +40,8 @@ void	reverse_sort_stack(t_sort **list, int status)
 	t_sort	*last;
 
 	temp = *list;
+	if (lstsize_int(*list) <= 3)
+		reverse_sort_three(&(*list), status);
 	last = lstlast_int(*list);
 	while (list_is_sorted(*list, 2) == 0)
 	{
@@ -66,9 +53,7 @@ void	reverse_sort_stack(t_sort **list, int status)
 		}
 		else if (temp->content < temp->next->content && \
 			temp->next->content < last->content)
-		{
 			list_swap(*list, status);
-		}
 		else if (temp->content > temp->next->content)
 			list_rotate_reverse(&(*list), status);
 		temp = *list;
@@ -82,6 +67,8 @@ void	sort_stack(t_sort **list, int status)
 	t_sort	*temp;
 
 	temp = *list;
+	if (lstsize_int(*list) <= 3)
+		sort_three(&(*list), status);
 	while (list_is_sorted(*list, 1) == 0)
 	{
 		if (temp->content > temp->next->content && \
@@ -112,22 +99,21 @@ void	least_worst_algo(t_swap *data)
 
 	stack_a = array_to_list(data);
 	size = lstsize_int(stack_a);
+	stack_b = NULL;
 	while (list_is_sorted(stack_a, 1) == 0)
 	{
-		while (lstsize_int(stack_b) != size / 2)
+		while (lstsize_int(stack_a) > size - (size / 2))
 		{
-			if (stack_a->content < data->median)
+			if (data->median > stack_a->content)
 			{
 				list_push(&stack_a, &stack_b, pb);
 			}
 			list_rotate(&stack_a, ra);
 		}
-		sort_three(&stack_a, e_stack_a);
-		printf("teste\n");
+		sort_stack(&stack_a, e_stack_a);
+		reverse_sort_stack(&stack_b, e_stack_b);
 		while (stack_b != NULL)
 		{
-			sort_stack(&stack_b, e_stack_b);
-			list_rotate(&stack_b, e_stack_b);
 			list_push(&stack_b, &stack_a, pa);
 		}
 	}

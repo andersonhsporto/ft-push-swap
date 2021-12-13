@@ -6,11 +6,13 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 20:21:33 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/12 15:04:01 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/13 13:24:10 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	list_bubble_sort(t_sort **info);
 
 t_sort	*lst_dup_int(t_sort *info)
 {
@@ -57,7 +59,7 @@ void	list_bubble_sort(t_sort **info)
 	newlist = *info;
 	index = NULL;
 	temp = 0;
-	if (info == NULL)
+	if (info == NULL && list_is_sorted(*info, 1) == 1)
 		return ;
 	while (newlist != NULL)
 	{

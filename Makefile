@@ -1,6 +1,6 @@
 NAME = push_swap
 
-CC		=	gcc
+CC		=	clang
 CFLAGS	=	-Wall -Wextra #-Werror
 INCLUDE =	-I ./includes
 
@@ -74,13 +74,8 @@ push:clean
 c:clean
 	rm -rf push_swap
 	$(CC) $(CFLAGS) $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)
-	./push_swap 2 1 3
-	./push_swap 3 2 1
-	./push_swap 3 1 2
-	./push_swap 1 3 2
-	./push_swap 2 3 1
-	#./push_swap 5 10 8 7 6 
-	#./push_swap 5 4 8 7 6
+	./push_swap 5 10 8 7 6
+	./push_swap 5 4 8 7 6
 
 
 tri:clean
