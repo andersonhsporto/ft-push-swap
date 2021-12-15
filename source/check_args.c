@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 00:21:34 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/11 20:57:26 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/14 22:53:14 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int			inspect_char(int c);
 static void	inspect_duplicates(t_swap *data);
 static void	inspect_int(t_swap *data);
-static void	inspect_sort(t_swap *data);
 
 void	inspect_arg(t_swap *data, int argc, char **argv)
 {

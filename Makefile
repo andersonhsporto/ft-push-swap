@@ -74,8 +74,13 @@ push:clean
 c:clean
 	rm -rf push_swap
 	$(CC) $(CFLAGS) $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)
-	./push_swap 5 10 8 7 6
-	./push_swap 5 4 8 7 6
+	./push_swap 2 1
+	./push_swap 2 1 3
+	./push_swap 3 2 1
+	./push_swap 3 1 2
+	./push_swap 1 3 2
+	./push_swap 2 3 1
+
 
 
 tri:clean
@@ -95,7 +100,7 @@ error:clean
 
 valgrind:clean
 	$(CC) $(CFLAGS) -g $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)
-	valgrind --leak-check=full ./push_swap 3 9 4 2 8 10 444444 7
+	valgrind --tool=memcheck --leak-check=yes --show-reachable=yes --num-callers=20 --track-fds=yes ./push_swap 3 9 4 2 8 10 444444 7
 
 sanitize:clean
 	$(CC) $(CFLAGS) -fsanitize=address -g $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)

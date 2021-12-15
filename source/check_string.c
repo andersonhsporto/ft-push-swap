@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 20:00:19 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/09 01:35:14 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/14 22:51:58 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 static int	count_array(char **args);
 static void	inspect_duplicates(t_swap *data);
 static void	inspect_int(t_swap *data);
-static void	inspect_sort(t_swap *data);
 
 void	inspect_string(t_swap *data, int argc, char **argv)
 {
@@ -91,25 +90,5 @@ static void	inspect_int(t_swap *data)
 	}
 	data->store.len_stack_a = (data->args.argc);
 	inspect_sort(data);
-	return ;
-}
-
-static void	inspect_sort(t_swap *data)
-{
-	int	i;
-
-	i = 0;
-	while (i < data->store.len_stack_a)
-	{
-		if ((i < (data->store.len_stack_a - 1)) && data->store.stack_a[i]
-			> data->store.stack_a[i + 1])
-		{
-			return ;
-		}
-		i++;
-	}
-	free(data->store.stack_a);
-	free(data->store.stack_b);
-	exit(EXIT_SUCCESS);
 	return ;
 }

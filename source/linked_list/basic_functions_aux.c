@@ -6,26 +6,17 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 22:56:10 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/12 15:07:05 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/13 15:57:23 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	lstdelete_int(t_sort **lst)
+void	lstdelete_int(t_sort *lst)
 {
-	t_sort	*index;
-	t_sort	*temp;
-
-	index = *lst;
-	temp = NULL;
-	while (index)
-	{
-		temp = index;
-		index = index->next;
-		free(temp);
-	}
-	lst = NULL;
+	if (lst->next)
+		lstdelete_int(lst->next);
+	free(lst);
 }
 
 void	printlist(t_sort *info)

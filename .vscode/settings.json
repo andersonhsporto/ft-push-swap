@@ -10,7 +10,8 @@
 		"tuple": "c",
 		"chrono": "c",
 		"list": "c",
-		"push_swap.h": "c"
+		"push_swap.h": "c",
+		"ratio": "c"
 	},
 	"cSpell.words": [
 		"LIBFT"

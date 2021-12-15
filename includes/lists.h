@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 13:07:28 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/13 13:03:01 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/13 15:57:57 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	lstadd_front_int(t_sort **lst, t_sort *new);
 int		lstsize_int(t_sort *lst);
 t_sort	*lstlast_int(t_sort *lst);
 void	lstadd_back_int(t_sort **lst, t_sort *new);
-void	lstdelete_int(t_sort **lst);
+void	lstdelete_int(t_sort *lst);
 
 void	list_push(t_sort **src, t_sort **dst, int status);
 void	list_rotate_reverse(t_sort **info, int status);
