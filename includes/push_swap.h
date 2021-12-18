@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 22:50:53 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/13 18:51:43 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/17 21:32:34 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,12 +86,19 @@ typedef struct s_utils
 	int		min;
 }	t_utils;
 
+typedef struct s_index
+{
+	int	*grp_min;
+	int	*grp_max;
+}	t_index;
+
 typedef struct s_swap
 {
 	char		**arg_string;
 	t_arguments	args;
 	t_pile		store;
 	t_utils		value;
+	t_index		merge;
 	int			max;
 	int			min;
 	int			median;
@@ -141,9 +148,23 @@ void	third_number(t_swap *data);
 //remover
 void	print_array(int *array, int size);
 
+//list scan
 t_sort	*array_to_list(t_swap *data);
+void	scan_list(t_sort *info, t_swap *data);
+
+//trilogy
+void	sort_cont(t_sort **list, int status);
+void	sort_three(t_sort **list, int status);
+void	rev_sort_three(t_sort **list, int status);
+void	rev_sort_cont(t_sort **list, int status);
+void	simple_algo(t_swap *data);
 
 void	inspect_sort(t_swap *data);
 void	scan_median(t_swap *data);
 
+void	least_worst_algo(t_swap *data);
+t_sort	*array_to_list(t_swap *data);
+void	reverse_sort_stack(t_sort **list, int status);
+void	sort_stack(t_sort **list, int status);
+void	worst_algo(t_swap *data);
 #endif

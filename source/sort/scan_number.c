@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 19:37:45 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/15 01:05:53 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/17 22:05:15 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	scan_status(t_swap *data)
 		simple_algo(data);
 		return ;
 	}
-	if (data->args.argc > 4)
+	else if (data->args.argc > 4)
 	{
-		least_worst_algo(data);
+		quick_test(data);
+		return ;
 	}
-	return ;
 }
