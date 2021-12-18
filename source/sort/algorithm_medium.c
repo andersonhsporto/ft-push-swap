@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 01:37:12 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/17 22:29:44 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/18 00:52:36 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,28 +22,39 @@ void	quick_test(t_swap *data)
 
 	stk_a = array_to_list(data);
 	stk_b = NULL;
-	while (i < 2)
+	while (i < (data->store.len_stack_a / 2) - 1)
 	{
-		move_fourths(&stk_a, &stk_b, -21, 10);
+		//printf("%d %d \n", data->merge.grp_min[i], data->merge.grp_max[i]);
+		move_fourths(&stk_a, &stk_b, data->merge.grp_min[i], data->merge.grp_max[i]);
 		i++;
 	}
-	printlist(stk_b);
+	sort_stack(&stk_a, 0);
+	printlist(stk_a);
+	// reverse_sort_stack(&stk_b, 1);
+	// while (stk_b != NULL)
+	// {
+	// 	list_push(&stk_b, &stk_a, pb);
+	// }
+	// printlist(stk_a);
 }
 
 void	move_fourths(t_sort **lst,	t_sort **lst_b, int min, int max)
 {
-	int		fourth_size;
-	int		size_lst;
-	t_sort	*tmp;
+	static int	size;
+	int			size_lst;
+	t_sort		*tmp;
 
 	tmp = *lst;
-	fourth_size = lstsize_int(*lst) / 5;
 	size_lst = lstsize_int(*lst);
-	while (lstsize_int(*lst) > size_lst - fourth_size)
+	if (!size)
+		size = lstsize_int(*lst) / 5;
+	while (lstsize_int(*lst) > size_lst - size)
 	{
-		printf("SIZE = %d, min %d, max %d\n", lstsize_int(*lst), min, max);
 		if (tmp->content >= min && tmp->content <= max)
+		{
+			//printf(">> cotent = %d \n", tmp->content);
 			list_push(&(*lst), &(*lst_b), pb);
+		}
 		list_rotate(&(*lst), ra);
 		tmp = *lst;
 	}
