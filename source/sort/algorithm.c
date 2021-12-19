@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 19:47:20 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/19 01:12:48 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/19 16:37:36 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ void	reverse_sort_stack(t_sort **list, int status, int min)
 		}
 		temp = *list;
 		last = lstlast_int(*list);
-		printf("\n");
-		printlist(*list);
+		//printf("\n");
+		//printlist(*list);
 	}
 	return ;
 }
@@ -92,6 +92,7 @@ void	sort_stack(t_sort **list, int status, int max)
 		}
 		else
 		{
+			//printf("teste\n");
 			list_rotate_reverse(&(*list), status);
 		}
 		temp = *list;

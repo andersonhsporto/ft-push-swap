@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 22:25:54 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/17 23:19:09 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/19 15:42:03 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ void	scan_fourth(t_swap	*data)
 	dup = array_dup(data);
 	ft_sort_int_tab(dup, data->store.len_stack_a);
 	index = data->store.len_stack_a / 5;
+	data->group_size = data->store.len_stack_a / 5;
 	data->merge.grp_min = (int *)malloc(sizeof(int) * index);
 	data->merge.grp_max = (int *)malloc(sizeof(int) * index);
 	data->merge.grp_min[0] = dup[0];
@@ -93,7 +94,6 @@ void	scan_fourth(t_swap	*data)
 		data->merge.grp_min[j] = dup[index * i];
 		i++;
 		data->merge.grp_max[j] = dup[(index * i) - 1];
-		//printf("%d %d \n", data->merge.grp_min[j], data->merge.grp_max[j]);
 		j++;
 	}
 	free(dup);
@@ -107,7 +107,6 @@ void	init_data(t_swap *data, int argc, char **argv)
 	data->store.stack_b = (int *)malloc(1 * sizeof(int));
 	return ;
 }
-
 
 // void	scan_fourth(t_swap	*data)
 // {

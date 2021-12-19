@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 22:50:53 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/18 21:33:57 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/19 02:49:13 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ typedef struct s_swap
 	t_index		merge;
 	int			max;
 	int			min;
+	int			group_size;
 	int			median;
 	int			median_index;
 }	t_swap;
