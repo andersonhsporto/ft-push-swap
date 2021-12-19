@@ -11,7 +11,11 @@
 		"chrono": "c",
 		"list": "c",
 		"push_swap.h": "c",
-		"ratio": "c"
+		"ratio": "c",
+		"random": "c",
+		"limits": "c",
+		"semaphore": "c",
+		"algorithm": "c"
 	},
 	"cSpell.words": [
 		"LIBFT"

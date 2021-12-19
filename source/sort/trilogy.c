@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 22:08:57 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/15 15:55:34 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/18 23:36:47 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,18 @@ void	sort_three(t_sort **list, int status)
 
 	tmp = *list;
 	if (lstsize_int(*list) == 2 && list_is_sorted(*list, 2))
-		list_swap(*list, status);
+		list_swap((*list), status);
 	while (list_is_sorted(*list, 1) == 0)
 	{
 		if (tmp->content > tmp->next->content && \
 			tmp->next->content < tmp->next->next->content && \
 			tmp->next->next->content > tmp->content)
-			list_swap(*list, status);
+			list_swap(*&(*list), status);
 		else if (tmp->content > tmp->next->content && \
 		tmp->next->content > tmp->next->next->content && \
 		tmp->next->next->content < tmp->next->content)
 		{
-			list_swap(*list, status);
+			list_swap(*&(*list), status);
 			list_rotate_reverse(&(*list), status);
 		}
 		sort_cont(&(*list), status);

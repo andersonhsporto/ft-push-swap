@@ -74,7 +74,7 @@ push:clean
 c:clean
 	rm -rf push_swap
 	$(CC) $(CFLAGS) -g $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)
-	./push_swap -27 8 -92 27 26 35 12 3 10 70
+	./push_swap 0 1 4 10 11 3 2 7 100 200
 
 tri:clean
 	rm -rf push_swap

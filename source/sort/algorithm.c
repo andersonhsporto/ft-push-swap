@@ -6,35 +6,35 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 19:47:20 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/16 02:41:21 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/18 23:55:42 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	worst_algo(t_swap *data)
-{
-	t_sort	*stack_a;
-	t_sort	*stack_b;
+// void	worst_algo(t_swap *data)
+// {
+// 	t_sort	*stack_a;
+// 	t_sort	*stack_b;
 
-	stack_a = array_to_list(data);
-	while (stack_a != NULL)
-	{
-		if (data->min == stack_a->content)
-		{
-			list_push(&stack_a, &stack_b, pa);
-			scan_list(stack_a, data);
-		}
-		list_rotate(&stack_a, ra);
-	}
-	while (stack_b != NULL)
-	{
-		list_push(&stack_b, &stack_a, pb);
-	}
-	return ;
-}
+// 	stack_a = array_to_list(data);
+// 	while (stack_a != NULL)
+// 	{
+// 		if (data->min == stack_a->content)
+// 		{
+// 			list_push(&stack_a, &stack_b, pa);
+// 			scan_list(stack_a, data);
+// 		}
+// 		list_rotate(&stack_a, ra);
+// 	}
+// 	while (stack_b != NULL)
+// 	{
+// 		list_push(&stack_b, &stack_a, pb);
+// 	}
+// 	return ;
+// }
 
-void	reverse_sort_stack(t_sort **list, int status)
+void	reverse_sort_stack(t_sort **list, int status, int min)
 {
 	t_sort	*temp;
 	t_sort	*last;
@@ -45,24 +45,31 @@ void	reverse_sort_stack(t_sort **list, int status)
 		rev_sort_three(&(*list), status);
 	while (!list_is_sorted(*list, 2))
 	{
-		if (temp->content < temp->next->content && \
+		if (temp->next->content > temp->content && \
 			temp->next->content > last->content)
 		{
 			list_swap(*list, status);
 			list_rotate(&(*list), status);
 		}
-		else if (temp->content < temp->next->content && \
-			temp->next->content < last->content)
+		else if (temp->next->content > temp->content && \
+				temp->next->content < last->content)
+		{
 			list_swap(*list, status);
-		else if (temp->content > temp->next->content)
 			list_rotate_reverse(&(*list), status);
+		}
+		else if (temp->next->content < temp->content)
+		{
+			list_rotate(&(*list), status);
+		}
 		temp = *list;
-		last = lstlast_int(temp);
+		last = lstlast_int(*list);
+		printf("\n");
+		printlist(*list);
 	}
 	return ;
 }
 
-void	sort_stack(t_sort **list, int status)
+void	sort_stack(t_sort **list, int status, int max)
 {
 	t_sort	*temp;
 
@@ -77,10 +84,11 @@ void	sort_stack(t_sort **list, int status)
 			list_swap(*list, status);
 		}
 		else if (temp->content > temp->next->content && \
-				temp->content > temp->next->next->content)
+				temp->content > temp->next->next->content && \
+				temp->content != max)
 		{
 			list_swap(*list, status);
-			list_rotate(&(*list), status);
+			list_rotate_reverse(&(*list), status);
 		}
 		else if (temp->content < temp->next->content)
 		{
@@ -115,8 +123,8 @@ void	least_worst_algo(t_swap *data)
 		}
 		printf("STACK B >>>\n");
 		printlist(stack_b);
-		sort_stack(&stack_a, e_stack_a);
-		reverse_sort_stack(&stack_b, e_stack_b);
+		sort_stack(&stack_a, e_stack_a, data->max);
+		reverse_sort_stack(&stack_b, e_stack_b, data->min);
 		while (stack_b != NULL)
 		{
 			list_push(&stack_b, &stack_a, pa);
