@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 19:47:20 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/18 23:55:42 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/19 01:12:48 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,9 @@ void	sort_stack(t_sort **list, int status, int max)
 				temp->content != max)
 		{
 			list_swap(*list, status);
-			list_rotate_reverse(&(*list), status);
+			list_rotate(&(*list), status);
 		}
-		else if (temp->content < temp->next->content)
+		else
 		{
 			list_rotate_reverse(&(*list), status);
 		}

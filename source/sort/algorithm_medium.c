@@ -6,13 +6,14 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 01:37:12 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/19 00:02:00 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/19 01:18:30 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 void	move_fourths(t_sort **lst,	t_sort **lst_b, int min, int max);
+void	push_main(t_sort **dst, t_sort **src);
 
 void	quick_test(t_swap *data)
 {
@@ -28,11 +29,18 @@ void	quick_test(t_swap *data)
 		data->merge.grp_min[i], data->merge.grp_max[i]);
 		i++;
 	}
-	sort_stack(stk_a, 0, data->max);
-	while (stk_b != NULL)
+	//printlist(stk_b);
+	sort_stack(&stk_a, 0, data->max);
+	push_main(&stk_a, &stk_b);
+}
+
+void	push_main(t_sort **dst, t_sort **src)
+{
+	while (*src != NULL)
 	{
-	 	list_push(&stk_b, &stk_a, pa);
+		list_push(&(*src), &(*dst), pa);
 	}
+	return ;
 }
 
 void	move_fourths(t_sort **lst,	t_sort **lst_b, int min, int max)
