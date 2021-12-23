@@ -74,7 +74,7 @@ push:clean
 c:clean
 	rm -rf push_swap
 	$(CC) $(CFLAGS) -g $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)
-	./push_swap 72 -30 -70 36 5 -24 93 -25 -38  4000 5000 6000
+	./push_swap 72 -30 -70 36 5 8 9
 
 tri:clean
 	rm -rf push_swap
@@ -102,10 +102,11 @@ sanitize:clean
 	./push_swap 3 9 4 2 8 10 444444 7
 
 test:re
-	python3 pyviz.py `ruby -e "puts (0..6).to_a.shuffle.join(' ')"`
+	python3 pyviz.py `ruby -e "puts (0..5).to_a.shuffle.join(' ')"`
 
 
 #ARG="0 5000 1 4 2000 10 11 3 2 7 100 200 300 400"; ./push_swap $ARG | ./checker_linux $ARG
+#ARG=`ruby -e "puts (0..20).to_a.shuffle.join(' ')"`; ./push_swap $ARG 
 #python3 pyviz.py `ruby -e "puts (-200..200).to_a.shuffle.join(' ')"`
 
 #./push_swap 0 5000 1 4 2000 10 11 3 2 7 100 200 300 400

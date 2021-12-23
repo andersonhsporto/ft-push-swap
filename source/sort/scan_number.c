@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 19:37:45 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/17 22:05:15 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/22 00:24:20 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	scan_status(t_swap *data)
 {
-	if (data->args.argc <= 4)
+	if (data->args.argc <= 5)
 	{
 		simple_algo(data);
 		return ;
