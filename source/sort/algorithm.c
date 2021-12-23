@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 19:47:20 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/21 00:34:39 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/22 23:16:09 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,8 +122,6 @@ void	least_worst_algo(t_swap *data)
 				list_rotate(&stack_a, ra);
 			}
 		}
-		printf("STACK B >>>\n");
-		printlist(stack_b);
 		sort_stack(&stack_a, e_stack_a, data->max);
 		reverse_sort_stack(&stack_b, e_stack_b, data->min);
 		while (stack_b != NULL)

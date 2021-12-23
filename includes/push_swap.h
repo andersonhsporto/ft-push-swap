@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 22:50:53 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/19 02:49:13 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/23 00:40:37 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 
 # define MAX_INT 2147483647
 # define MIN_INT 2147483648
+# define INT_MIN -2147483648
 
 enum e_swap{
 	sa,

@@ -6,44 +6,101 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 03:01:42 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/22 22:55:41 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/23 01:27:31 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	move_median(t_sort **dst, t_sort **src, t_swap *data);
+void	move_fourths(t_sort **lst,	t_sort **lst_b, int min, int max);
+void	algo_b(t_sort **dst);
 void	push_main(t_sort **dst, t_sort **src);
 
 void	quick_test(t_swap *data)
 {
 	t_sort	*stk_a;
 	t_sort	*stk_b;
+	int		index;
 
 	stk_a = array_to_list(data);
 	stk_b = NULL;
-	move_median(&stk_b, &stk_a, data);
-	while (!list_is_sorted(stk_a, 1) && !list_is_sorted(stk_b, 2))
+	index = 0;
+	while (!list_is_sorted(stk_a, 1))
 	{
+		while (index < 5)
+		{
+			move_fourths(&stk_a, &stk_b, \
+				data->merge.grp_min[index], data->merge.grp_max[index]);
+			index++;
+		}
+		while (stk_b != NULL)
+		{
+			algo_b(&stk_b);
+			list_push(&stk_b, &stk_a, pa);
+		}
 	}
-	push_main(&stk_a, &stk_b);
-	//printlist(stk_a);
+			//printlist(stk_a);
+	//sort_stack(&stk_a, 0, data->max);
+	//push_main(&stk_a, &stk_b);
 }
 
-void	move_median(t_sort **dst, t_sort **src, t_swap *data)
+int	find_max(t_sort *dst)
 {
+	int		max;
 	t_sort	*tmp;
-	int		size_src;
 
-	tmp = *src;
-	size_src = lstsize_int(*src) / 2;
-	while (lstsize_int(*dst) != size_src)
+	tmp = dst;
+	max = INT_MIN;
+	while (tmp != NULL)
 	{
-		if (tmp->content < data->median)
-			list_push(&(*src), &(*dst), pb);
-		else
-			list_rotate(&(*src), ra);
-		tmp = *src;
+		if (max < tmp->content)
+		{
+			max = tmp->content;
+		}
+		tmp = tmp->next;
+	}
+	return (max);
+}
+
+int	find_index(t_sort *dst, int number)
+{
+	int		index;
+	t_sort	*tmp;
+
+	tmp = dst;
+	index = 0;
+	while (tmp != NULL)
+	{
+		if (number == tmp->content)
+		{
+			break ;
+		}
+		tmp = tmp->next;
+		index++;
+	}
+	return (index);
+}
+
+void	algo_b(t_sort **dst)
+{
+	int	index;
+
+	index = find_index(*dst, find_max(*dst));
+	if (index < (lstsize_int(dst) / 2))
+	{
+		while (index > 0)
+		{
+			index--;
+			list_rotate(&(*dst), 1);
+		}
+	}
+	else
+	{
+		while (index < (lstsize_int(*dst)))
+		{
+			index++;
+			list_rotate_reverse(&(*dst), 1);
+		}
 	}
 }
 
@@ -55,3 +112,32 @@ void	push_main(t_sort **dst, t_sort **src)
 	}
 	return ;
 }
+
+void	move_fourths(t_sort **lst,	t_sort **lst_b, int min, int max)
+{
+	static int	size;
+	int			size_lst;
+	int			flag;
+	t_sort		*tmp;
+
+	tmp = *lst;
+	size_lst = lstsize_int(*lst);
+	flag = 0;
+	if (!size)
+		size = lstsize_int(*lst) / 5;
+	while (lstsize_int(*lst) > size_lst - size)
+	{
+		flag = 0;
+		if (tmp->content >= min && tmp->content <= max)
+		{
+			list_push(&(*lst), &(*lst_b), pb);
+		}
+		else
+		{
+			list_rotate(&(*lst), ra);
+		}
+		tmp = *lst;
+	}
+	return ;
+}
+
