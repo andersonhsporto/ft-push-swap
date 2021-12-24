@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 03:01:42 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/23 01:27:31 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/23 21:48:29 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	move_fourths(t_sort **lst,	t_sort **lst_b, int min, int max);
 void	algo_b(t_sort **dst);
-void	push_main(t_sort **dst, t_sort **src);
 
 void	quick_test(t_swap *data)
 {
@@ -27,7 +26,7 @@ void	quick_test(t_swap *data)
 	index = 0;
 	while (!list_is_sorted(stk_a, 1))
 	{
-		while (index < 5)
+		while (index < data->number_group)
 		{
 			move_fourths(&stk_a, &stk_b, \
 				data->merge.grp_min[index], data->merge.grp_max[index]);
@@ -39,46 +38,6 @@ void	quick_test(t_swap *data)
 			list_push(&stk_b, &stk_a, pa);
 		}
 	}
-			//printlist(stk_a);
-	//sort_stack(&stk_a, 0, data->max);
-	//push_main(&stk_a, &stk_b);
-}
-
-int	find_max(t_sort *dst)
-{
-	int		max;
-	t_sort	*tmp;
-
-	tmp = dst;
-	max = INT_MIN;
-	while (tmp != NULL)
-	{
-		if (max < tmp->content)
-		{
-			max = tmp->content;
-		}
-		tmp = tmp->next;
-	}
-	return (max);
-}
-
-int	find_index(t_sort *dst, int number)
-{
-	int		index;
-	t_sort	*tmp;
-
-	tmp = dst;
-	index = 0;
-	while (tmp != NULL)
-	{
-		if (number == tmp->content)
-		{
-			break ;
-		}
-		tmp = tmp->next;
-		index++;
-	}
-	return (index);
 }
 
 void	algo_b(t_sort **dst)
@@ -86,7 +45,7 @@ void	algo_b(t_sort **dst)
 	int	index;
 
 	index = find_index(*dst, find_max(*dst));
-	if (index < (lstsize_int(dst) / 2))
+	if (index < (lstsize_int(*dst) / 2))
 	{
 		while (index > 0)
 		{
@@ -104,14 +63,7 @@ void	algo_b(t_sort **dst)
 	}
 }
 
-void	push_main(t_sort **dst, t_sort **src)
-{
-	while (*src != NULL)
-	{
-		list_push(&(*src), &(*dst), pa);
-	}
-	return ;
-}
+
 
 void	move_fourths(t_sort **lst,	t_sort **lst_b, int min, int max)
 {
@@ -124,7 +76,7 @@ void	move_fourths(t_sort **lst,	t_sort **lst_b, int min, int max)
 	size_lst = lstsize_int(*lst);
 	flag = 0;
 	if (!size)
-		size = lstsize_int(*lst) / 5;
+		size = lstsize_int(*lst) / 10;
 	while (lstsize_int(*lst) > size_lst - size)
 	{
 		flag = 0;
@@ -134,10 +86,10 @@ void	move_fourths(t_sort **lst,	t_sort **lst_b, int min, int max)
 		}
 		else
 		{
+			printf("min = %d, max = %d\n", min, max);
 			list_rotate(&(*lst), ra);
 		}
 		tmp = *lst;
 	}
 	return ;
 }
-

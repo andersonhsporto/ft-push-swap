@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 19:47:20 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/22 23:16:09 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/23 21:48:37 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,4 +131,50 @@ void	least_worst_algo(t_swap *data)
 	}
 	lstdelete_int(stack_a);
 	return ;
+}
+
+void	push_main(t_sort **dst, t_sort **src)
+{
+	while (*src != NULL)
+	{
+		list_push(&(*src), &(*dst), pa);
+	}
+	return ;
+}
+
+int	find_max(t_sort *dst)
+{
+	int		max;
+	t_sort	*tmp;
+
+	tmp = dst;
+	max = INT_MIN;
+	while (tmp != NULL)
+	{
+		if (max < tmp->content)
+		{
+			max = tmp->content;
+		}
+		tmp = tmp->next;
+	}
+	return (max);
+}
+
+int	find_index(t_sort *dst, int number)
+{
+	int		index;
+	t_sort	*tmp;
+
+	tmp = dst;
+	index = 0;
+	while (tmp != NULL)
+	{
+		if (number == tmp->content)
+		{
+			break ;
+		}
+		tmp = tmp->next;
+		index++;
+	}
+	return (index);
 }

@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 22:25:54 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/23 01:27:43 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/23 21:42:36 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,24 +76,21 @@ void	scan_median(t_swap *data)
 
 void	scan_fourth(t_swap	*data)
 {
-	int	index;
-	int i = 1;
+	int i = 0;
 	int j = 1;
 	int	*dup;
 
 	dup = array_dup(data);
 	ft_sort_int_tab(dup, data->store.len_stack_a);
-	index = data->store.len_stack_a / 5;
-	data->group_size = data->store.len_stack_a / 5;
-	data->merge.grp_min = (int *)malloc(sizeof(int) * index);
-	data->merge.grp_max = (int *)malloc(sizeof(int) * index);
-	data->merge.grp_min[0] = dup[0];
-	data->merge.grp_max[0] = dup[index - 1];
-	while (i < 5)
+	data->number_group = data->store.len_stack_a / 10;
+	data->group_size = data->store.len_stack_a / data->number_group;
+	data->merge.grp_min = (int *)malloc(sizeof(int) * data->group_size);
+	data->merge.grp_max = (int *)malloc(sizeof(int) * data->group_size);
+	while (i < data->group_size)
 	{
-		data->merge.grp_min[j] = dup[index * i];
+		data->merge.grp_min[i] = dup[data->number_group * i];
 		i++;
-		data->merge.grp_max[j] = dup[(index * i) - 1];
+		data->merge.grp_max[i] = dup[(data->number_group * i) - 1];
 		j++;
 	}
 	free(dup);
