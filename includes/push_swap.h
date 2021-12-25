@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 22:50:53 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/23 21:34:15 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/23 23:45:52 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,9 +100,10 @@ typedef struct s_swap
 	t_pile		store;
 	t_utils		value;
 	t_index		merge;
+	t_sort		*stk_a;
 	int			max;
 	int			min;
-	int			group_size;
+	int			size;
 	int			number_group;
 	int			median;
 	int			median_index;

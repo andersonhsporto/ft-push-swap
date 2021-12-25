@@ -95,7 +95,7 @@ error:clean
 valgrind:clean
 	$(CC) $(CFLAGS) -g $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)
 	valgrind --tool=memcheck --leak-check=yes --show-reachable=yes \
-	--num-callers=20 --track-fds=yes ./push_swap 2 1 3
+	--num-callers=20 --track-fds=yes ./push_swap 72 3000 -30 88 45 -70 36 65 85 5 8 9 1000
 
 sanitize:clean
 	$(CC) $(CFLAGS) -fsanitize=address -g $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)
