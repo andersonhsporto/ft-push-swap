@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 22:25:54 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/24 00:14:07 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/27 02:44:33 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ void	scan_fourth(t_swap	*data)
 	int	index;
 	int i = 1;
 	int j = 0;
+	int	aux = 0;
 	int	*dup;
 
 	dup = array_dup(data);
