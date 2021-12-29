@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 20:21:33 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/19 01:11:03 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/29 15:36:44 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ t_sort	*array_to_list(t_swap *data)
 			data->min = data->store.stack_a[index];
 		index++;
 	}
+	scan_fourth(data);
 	free(data->store.stack_a);
 	free(data->store.stack_b);
 	return (info);

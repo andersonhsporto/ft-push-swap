@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 22:50:53 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/23 23:45:52 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/29 15:27:04 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 //REMOVER AO FINAL
 # include <stdio.h>
+# include <math.h>
 
 # include "lists.h"
 

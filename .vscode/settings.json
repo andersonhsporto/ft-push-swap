@@ -15,7 +15,8 @@
 		"random": "c",
 		"limits": "c",
 		"semaphore": "c",
-		"algorithm": "c"
+		"algorithm": "c",
+		"math.h": "c"
 	},
 	"cSpell.words": [
 		"LIBFT"

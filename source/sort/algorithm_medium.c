@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 03:01:42 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/24 00:09:03 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/29 16:46:44 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,13 @@ void	quick_test(t_swap *data)
 
 	data->stk_a = array_to_list(data);
 	stk_b = NULL;
-	index = 0;
+	index = 1;
 	while (!list_is_sorted(data->stk_a, 1))
 	{
-		while (index < data->size)
+		while (index < ft_sqrt(data->store.len_stack_a))
 		{
 			printf("%d number\n", data->size);
 			move_fourths(data, &stk_b, data->merge.grp_max[index]);
-			//break ;
 			index++;
 		}
 		break ;
@@ -75,8 +74,8 @@ void	move_fourths(t_swap *data,	t_sort **lst_b, int max)
 	size_lst = lstsize_int(data->stk_a);
 	flag = 0;
 	if (!size)
-		size = data->number_group;
-	while (lstsize_int(data->stk_a) > size_lst - size)
+		size = data->store.len_stack_a / ft_sqrt(data->store.len_stack_a);
+	while (lstsize_int(data->stk_a) < (size_lst - size))
 	{
 		flag = 0;
 		if (tmp->content <= max)
@@ -85,7 +84,9 @@ void	move_fourths(t_swap *data,	t_sort **lst_b, int max)
 		}
 		else
 		{
-			printf("max = %d %d > %d content = %d\n", max, lstsize_int(data->stk_a), size_lst - size, tmp->content);
+			printf("%d = lstsize_int(data->stk_a)", lstsize_int(data->stk_a));
+			printf(" %d = size_lst", size_lst);
+			printf(" %d = size\n", size);
 			list_rotate(&(data->stk_a), ra);
 		}
 		tmp = data->stk_a;

@@ -6,11 +6,12 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 22:25:54 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/27 02:44:33 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/29 16:17:38 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+# include <math.h>
 
 void	scan_fourth(t_swap	*data);
 
@@ -70,7 +71,7 @@ void	scan_median(t_swap *data)
 	}
 	free(temp);
 	temp = NULL;
-	scan_fourth(data);
+	//scan_fourth(data);
 	return ;
 }
 
@@ -108,26 +109,38 @@ void	init_data(t_swap *data, int argc, char **argv)
 	return ;
 }
 
+size_t	ft_sqrt(int nb)
+{
+	size_t	i;
+
+	i = 0;
+	while (i * i <= nb)
+	{
+		if (i * i == nb)
+			return (i);
+		i++;
+	}
+	return (i - 1);
+}
+
 void	scan_fourth(t_swap	*data)
 {
-	int	index;
-	int i = 1;
-	int j = 0;
-	int	aux = 0;
-	int	*dup;
+	int		*dup;
+	int		i = data->store.len_stack_a;
+	size_t	size;
 
 	dup = array_dup(data);
 	ft_sort_int_tab(dup, data->store.len_stack_a);
-	data->size = 10;
-	if (data->store.len_stack_a > 150)
-		data->size = 40;
-	index = data->store.len_stack_a / data->size;
-	data->merge.grp_max = (int *)malloc(sizeof(int) * (index + 1));
-	while (i < index)
+	size = ft_sqrt(data->store.len_stack_a);
+	data->number_group = size;
+	data->merge.grp_max = (int *)malloc(sizeof(int) * (size));
+	data->merge.grp_max[size] = data->max;
+	//printf("%zu == size, %d == element\n", size, data->merge.grp_max[size]);
+	while (--size)
 	{
-		i++;
-		data->merge.grp_max[j] = dup[(index * i) - 1];
-		j++;
+		data->merge.grp_max[size] = dup[i - (data->store.len_stack_a / size)];
+		//printf("%zu == size, %d == element\n", size, data->merge.grp_max[size]);
+		i = data->store.len_stack_a - (data->store.len_stack_a / size) - 1;
 	}
 	free(dup);
 }
