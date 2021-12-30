@@ -6,12 +6,11 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 22:25:54 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/29 16:17:38 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/30 01:44:26 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-# include <math.h>
 
 void	scan_fourth(t_swap	*data);
 
@@ -126,7 +125,8 @@ size_t	ft_sqrt(int nb)
 void	scan_fourth(t_swap	*data)
 {
 	int		*dup;
-	int		i = data->store.len_stack_a;
+	int		i = 0;
+	int 	j = 1;
 	size_t	size;
 
 	dup = array_dup(data);
@@ -135,12 +135,12 @@ void	scan_fourth(t_swap	*data)
 	data->number_group = size;
 	data->merge.grp_max = (int *)malloc(sizeof(int) * (size));
 	data->merge.grp_max[size] = data->max;
-	//printf("%zu == size, %d == element\n", size, data->merge.grp_max[size]);
-	while (--size)
+	while (j < size)
 	{
-		data->merge.grp_max[size] = dup[i - (data->store.len_stack_a / size)];
-		//printf("%zu == size, %d == element\n", size, data->merge.grp_max[size]);
-		i = data->store.len_stack_a - (data->store.len_stack_a / size) - 1;
+		i = i + (data->store.len_stack_a / size);
+		data->merge.grp_max[j] = dup[i - 1];
+		//printf("%d = i, %d = (data->store.len_stack_a / size), %d == size\n", i, (data->store.len_stack_a / size), data->merge.grp_max[j]);
+		j++;
 	}
 	free(dup);
 }

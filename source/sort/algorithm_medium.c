@@ -6,13 +6,14 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 03:01:42 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/29 16:46:44 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/30 01:46:24 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 void	move_fourths(t_swap *data,	t_sort **lst_b, int max);
+int		lst_find(t_sort *lst, int nb);
 void	algo_b(t_sort **dst);
 
 void	quick_test(t_swap *data)
@@ -25,18 +26,21 @@ void	quick_test(t_swap *data)
 	index = 1;
 	while (!list_is_sorted(data->stk_a, 1))
 	{
-		while (index < ft_sqrt(data->store.len_stack_a))
+		while (index < (ft_sqrt(data->store.len_stack_a) + 1))
 		{
-			printf("%d number\n", data->size);
+			//printf("%d number\n", ft_sqrt(data->store.len_stack_a));
 			move_fourths(data, &stk_b, data->merge.grp_max[index]);
+			//printf("%d \n", data->merge.grp_max[index]);
 			index++;
 		}
-		break ;
+		//break ;
 		while (stk_b != NULL)
 		{
 			algo_b(&stk_b);
 			list_push(&stk_b, &data->stk_a, pa);
 		}
+		//break ;
+	//printlist(data->stk_a);
 	}
 }
 
@@ -75,7 +79,9 @@ void	move_fourths(t_swap *data,	t_sort **lst_b, int max)
 	flag = 0;
 	if (!size)
 		size = data->store.len_stack_a / ft_sqrt(data->store.len_stack_a);
-	while (lstsize_int(data->stk_a) < (size_lst - size))
+	// if (max == data->max)
+	// 	size -= 1;
+	while (lst_find(data->stk_a, max))
 	{
 		flag = 0;
 		if (tmp->content <= max)
@@ -84,12 +90,27 @@ void	move_fourths(t_swap *data,	t_sort **lst_b, int max)
 		}
 		else
 		{
-			printf("%d = lstsize_int(data->stk_a)", lstsize_int(data->stk_a));
-			printf(" %d = size_lst", size_lst);
-			printf(" %d = size\n", size);
+			// printf("%d = lstsize_int(data->stk_a)", lstsize_int(data->stk_a));
+			// printf(" %d = size_lst", size_lst);
+			// printf(" %d = size ", size);
+			// printf(" MAX ==%d\n", max);
 			list_rotate(&(data->stk_a), ra);
 		}
 		tmp = data->stk_a;
 	}
 	return ;
+}
+
+int	lst_find(t_sort *lst, int nb)
+{
+	t_sort	*temp;
+
+	temp = lst;
+	while (temp != NULL)
+	{
+		if (temp->content < nb)
+			return (1);
+		temp = temp->next;
+	}
+	return (0);
 }
