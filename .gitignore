@@ -55,5 +55,6 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
+#Temp files and folders
 .push_swap_tester
 .teste
