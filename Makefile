@@ -1,6 +1,6 @@
 NAME = push_swap
 
-CC		=	clang
+CC		=	gcc
 CFLAGS	=	-Wall -Wextra #-Werror
 INCLUDE =	-I ./includes
 
@@ -96,7 +96,7 @@ error:clean
 valgrind:clean
 	$(CC) $(CFLAGS) -g $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)
 	valgrind --tool=memcheck --leak-check=yes --show-reachable=yes \
-	--num-callers=20 --track-fds=yes ./push_swap 72 3000 -30 88 45 -70 36 65 85 5 8 9 1000
+	--num-callers=20 ./push_swap 72 3000 -30 88 45 -70 36 65 85 5 8 9 1000
 
 sanitize:clean
 	$(CC) $(CFLAGS) -fsanitize=address -g $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)
@@ -107,7 +107,7 @@ test:re
 
 
 #ARG="0 5000 1 4 2000 10 11 3 2 7 100 200 300 400"; ./push_swap $ARG | ./checker_linux $ARG
-#ARG=`ruby -e "puts (1..100).to_a.shuffle.join(' ')"`; ./push_swap $ARG 
+#ARG=`ruby -e "puts (1..100).to_a.shuffle.join(' ')"`; ./push_swap $ARG
 #python3 pyviz.py `ruby -e "puts (1..100).to_a.shuffle.join(' ')"`
 
 #./push_swap 0 5000 1 4 2000 10 11 3 2 7 100 200 300 400

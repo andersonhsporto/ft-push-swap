@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 22:25:54 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/30 01:44:26 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/01 18:12:44 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,50 +53,25 @@ int	*array_dup(t_swap *data)
 	return (temp);
 }
 
-void	scan_median(t_swap *data)
-{
-	int	*temp;
-
-	temp = array_dup(data);
-	ft_sort_int_tab(temp, data->store.len_stack_a);
-	data->median_index = 0;
-	if (data->store.len_stack_a % 2 == 0)
-		data->median = ((temp[(data->store.len_stack_a - 1) / 2] + temp[(data->store.len_stack_a / 2)]) / 2);
-	if (data->store.len_stack_a % 2 != 0)
-		data->median = (temp[data->store.len_stack_a / 2]);
-	while (temp[data->median_index] < data->median)
-	{
-		data->median_index++;
-	}
-	free(temp);
-	temp = NULL;
-	//scan_fourth(data);
-	return ;
-}
-
-// void	scan_fourth(t_swap	*data)
+// void	scan_median(t_swap *data)
 // {
-// 	int	index;
-// 	int i = 1;
-// 	int j = 1;
-// 	int	*dup;
+// 	int	*temp;
 
-// 	dup = array_dup(data);
-// 	ft_sort_int_tab(dup, data->store.len_stack_a);
-// 	index = data->store.len_stack_a / 10;
-// 	data->size = data->store.len_stack_a / 10;
-// 	data->merge.grp_min = (int *)malloc(sizeof(int) * index);
-// 	data->merge.grp_max = (int *)malloc(sizeof(int) * index);
-// 	data->merge.grp_min[0] = dup[0];
-// 	data->merge.grp_max[0] = dup[index - 1];
-// 	while (i < 10)
+// 	temp = array_dup(data);
+// 	ft_sort_int_tab(temp, data->store.len_stack_a);
+// 	data->median_index = 0;
+// 	if (data->store.len_stack_a % 2 == 0)
+// 		data->median = ((temp[(data->store.len_stack_a - 1) / 2] + temp[(data->store.len_stack_a / 2)]) / 2);
+// 	if (data->store.len_stack_a % 2 != 0)
+// 		data->median = (temp[data->store.len_stack_a / 2]);
+// 	while (temp[data->median_index] < data->median)
 // 	{
-// 		data->merge.grp_min[j] = dup[index * i];
-// 		i++;
-// 		data->merge.grp_max[j] = dup[(index * i) - 1];
-// 		j++;
+// 		data->median_index++;
 // 	}
-// 	free(dup);
+// 	free(temp);
+// 	temp = NULL;
+// 	//scan_fourth(data);
+// 	return ;
 // }
 
 void	init_data(t_swap *data, int argc, char **argv)
@@ -113,9 +88,9 @@ size_t	ft_sqrt(int nb)
 	size_t	i;
 
 	i = 0;
-	while (i * i <= nb)
+	while (i * i <= (size_t)nb)
 	{
-		if (i * i == nb)
+		if (i * i == (size_t)nb)
 			return (i);
 		i++;
 	}
@@ -133,9 +108,9 @@ void	scan_fourth(t_swap	*data)
 	ft_sort_int_tab(dup, data->store.len_stack_a);
 	size = ft_sqrt(data->store.len_stack_a);
 	data->number_group = size;
-	data->merge.grp_max = (int *)malloc(sizeof(int) * (size));
+	data->merge.grp_max = (int *)malloc(sizeof(int) * (size + 1));
 	data->merge.grp_max[size] = data->max;
-	while (j < size)
+	while (j < (int)size)
 	{
 		i = i + (data->store.len_stack_a / size);
 		data->merge.grp_max[j] = dup[i - 1];

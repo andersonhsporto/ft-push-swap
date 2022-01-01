@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 03:01:42 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/30 01:46:24 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2021/12/30 02:26:10 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,10 @@ void	quick_test(t_swap *data)
 			list_push(&stk_b, &data->stk_a, pa);
 		}
 		//break ;
-	//printlist(data->stk_a);
+		//printlist(data->stk_a);
 	}
+	free(data->merge.grp_max);
+	lstdelete_int(data->stk_a);
 }
 
 void	algo_b(t_sort **dst)

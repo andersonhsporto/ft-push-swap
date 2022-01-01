@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 20:01:16 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/09 14:02:09 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/01 16:47:16 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	print_error(char *message, int exit_code)
 {
-	ft_putstr_fd(message, 2);
+	ft_putendl_fd(message, 2);
 	exit(exit_code);
 }
 

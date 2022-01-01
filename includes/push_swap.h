@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 22:50:53 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/29 15:27:04 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/01 16:46:11 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,10 +110,10 @@ typedef struct s_swap
 	int			median_index;
 }	t_swap;
 
-void	print_error(char *message, int exit_code);
-
 void	inspect_arg(t_swap *data, int argc, char **argv);
 int		inspect_char(int c);
+
+void	print_error(char *message, int exit_code);
 
 void	free_array(void **array);
 void	free_exit(t_swap *data);

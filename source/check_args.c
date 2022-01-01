@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 00:21:34 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/14 22:53:14 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/01 16:59:37 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	inspect_arg(t_swap *data, int argc, char **argv)
 		{
 			if (inspect_char(data->args.argv[i][j]))
 			{
-				print_error("Error\n", EXIT_FAILURE);
+				print_error("Error", EXIT_FAILURE);
 			}
 			j++;
 		}
@@ -65,7 +65,7 @@ static void	inspect_duplicates(t_swap *data)
 		{
 			if (ft_strcmp((data->args.argv[i]), data->args.argv[j]) == 0)
 			{
-				print_error("Error\n", EXIT_FAILURE);
+				print_error("Error", EXIT_FAILURE);
 			}
 			j++;
 		}
