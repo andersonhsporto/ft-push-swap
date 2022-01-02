@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 22:25:54 by anhigo-s          #+#    #+#             */
-/*   Updated: 2022/01/01 18:12:44 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/02 02:55:29 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	scan_fourth(t_swap	*data);
 
-void	ft_sort_int_tab(int *tab, int size)
+void	bubble_sort(int *tab, int size)
 {
 	int	count;
 	int	comp;
@@ -53,27 +53,6 @@ int	*array_dup(t_swap *data)
 	return (temp);
 }
 
-// void	scan_median(t_swap *data)
-// {
-// 	int	*temp;
-
-// 	temp = array_dup(data);
-// 	ft_sort_int_tab(temp, data->store.len_stack_a);
-// 	data->median_index = 0;
-// 	if (data->store.len_stack_a % 2 == 0)
-// 		data->median = ((temp[(data->store.len_stack_a - 1) / 2] + temp[(data->store.len_stack_a / 2)]) / 2);
-// 	if (data->store.len_stack_a % 2 != 0)
-// 		data->median = (temp[data->store.len_stack_a / 2]);
-// 	while (temp[data->median_index] < data->median)
-// 	{
-// 		data->median_index++;
-// 	}
-// 	free(temp);
-// 	temp = NULL;
-// 	//scan_fourth(data);
-// 	return ;
-// }
-
 void	init_data(t_swap *data, int argc, char **argv)
 {
 	data->args.argc = argc;
@@ -99,23 +78,24 @@ size_t	ft_sqrt(int nb)
 
 void	scan_fourth(t_swap	*data)
 {
-	int		*dup;
-	int		i = 0;
-	int 	j = 1;
+	int		*sorted;
 	size_t	size;
+	int		i;
+	int		j;
 
-	dup = array_dup(data);
-	ft_sort_int_tab(dup, data->store.len_stack_a);
+	sorted = array_dup(data);
+	bubble_sort(sorted, data->store.len_stack_a);
 	size = ft_sqrt(data->store.len_stack_a);
 	data->number_group = size;
 	data->merge.grp_max = (int *)malloc(sizeof(int) * (size + 1));
 	data->merge.grp_max[size] = data->max;
+	i = 0;
+	j = 1;
 	while (j < (int)size)
 	{
 		i = i + (data->store.len_stack_a / size);
-		data->merge.grp_max[j] = dup[i - 1];
-		//printf("%d = i, %d = (data->store.len_stack_a / size), %d == size\n", i, (data->store.len_stack_a / size), data->merge.grp_max[j]);
+		data->merge.grp_max[j] = sorted[i - 1];
 		j++;
 	}
-	free(dup);
+	free(sorted);
 }

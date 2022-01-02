@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 22:50:53 by anhigo-s          #+#    #+#             */
-/*   Updated: 2022/01/01 16:46:11 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/02 02:47:47 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,7 +165,6 @@ void	rev_sort_cont(t_sort **list, int status);
 void	simple_algo(t_swap *data);
 
 void	inspect_sort(t_swap *data);
-void	scan_median(t_swap *data);
 
 void	least_worst_algo(t_swap *data);
 t_sort	*array_to_list(t_swap *data);
