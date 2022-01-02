@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 22:50:53 by anhigo-s          #+#    #+#             */
-/*   Updated: 2022/01/02 02:47:47 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/02 03:34:47 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ int		inspect_char(int c);
 
 void	print_error(char *message, int exit_code);
 
-void	free_array(void **array);
+void	free_array(char **array);
 void	free_exit(t_swap *data);
 
 int		ft_atoi_error(const char *str, t_swap *data);
@@ -168,7 +168,5 @@ void	inspect_sort(t_swap *data);
 
 void	least_worst_algo(t_swap *data);
 t_sort	*array_to_list(t_swap *data);
-void	reverse_sort_stack(t_sort **list, int status, int min);
 void	sort_stack(t_sort **list, int status, int max);
-void	worst_algo(t_swap *data);
 #endif

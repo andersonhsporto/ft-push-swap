@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 20:00:19 by anhigo-s          #+#    #+#             */
-/*   Updated: 2022/01/01 16:59:20 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/02 17:50:59 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	inspect_string(t_swap *data, int argc, char **argv)
 
 	init_data(data, argc, argv);
 	data->args.argv = ft_split(argv[1], ' ');
+	//print_c_array(data->args.argv, 3);
 	data->args.argc = count_array(data->args.argv);
 	i = 0;
 	while (data->args.argv[i] != 0)
@@ -81,7 +82,7 @@ static void	inspect_int(t_swap *data)
 {
 	int	i;
 
-	data->store.stack_a = (int *)malloc((data->args.argc - 1) * sizeof(int));
+	data->store.stack_a = (int *)malloc((data->args.argc) * sizeof(int));
 	i = 0;
 	while (i < (data->args.argc))
 	{
@@ -89,6 +90,9 @@ static void	inspect_int(t_swap *data)
 		i++;
 	}
 	data->store.len_stack_a = (data->args.argc);
+	//printf(">>%d \n", data->store.len_stack_a);
+	free_array(data->args.argv);
+	//print_array(data->store.stack_a, data->store.len_stack_a);
 	inspect_sort(data);
 	return ;
 }

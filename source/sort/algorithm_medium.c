@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 03:01:42 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/30 02:26:10 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/02 17:16:04 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,14 +105,16 @@ void	move_fourths(t_swap *data,	t_sort **lst_b, int max)
 
 int	lst_find(t_sort *lst, int nb)
 {
-	t_sort	*temp;
+	t_sort	*tmp;
 
-	temp = lst;
-	while (temp != NULL)
+	tmp = lst;
+	while (tmp != NULL)
 	{
-		if (temp->content < nb)
+		if (tmp->content < nb)
+		{
 			return (1);
-		temp = temp->next;
+		}
+		tmp = tmp->next;
 	}
 	return (0);
 }

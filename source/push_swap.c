@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 23:09:09 by anhigo-s          #+#    #+#             */
-/*   Updated: 2022/01/02 02:56:06 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/02 03:50:21 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		inspect_string(&data, argc, argv);
+		scan_status(&data);
 	}
 	if (argc > 2)
 	{

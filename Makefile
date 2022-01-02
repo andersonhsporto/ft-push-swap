@@ -1,7 +1,7 @@
 NAME = push_swap
 
 CC		=	gcc
-CFLAGS	=	-Wall -Wextra #-Werror
+CFLAGS	=	-Wall -Wextra -g#-Werror
 INCLUDE =	-I ./includes
 
 S_FOLDER  = ./source/
@@ -74,8 +74,8 @@ push:clean
 c:clean
 	rm -rf push_swap
 	$(CC) $(CFLAGS) -g $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)
-	./push_swap 72 3000 -30 88 45 -70 36 1000 85 5 8 9
-	./push_swap 72 3000 -30 88 45 -70 36 1000 85 5 8 9 | wc -l
+	./push_swap 1 5 2 4 3
+	ARG="1 5 2 4 3"; ./push_swap $$ARG
 
 tri:clean
 	rm -rf push_swap
