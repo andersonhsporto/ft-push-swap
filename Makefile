@@ -1,12 +1,12 @@
 NAME = push_swap
 
 CC		=	gcc
-CFLAGS	=	-Wall -Wextra -g#-Werror
+CFLAGS	=	-Wall -Wextra -g #-Werror
 INCLUDE =	-I ./includes
 
 S_FOLDER  = ./source/
 U_FOLDER  = utils/
-O_FOLDER  = operations_array/
+
 SO_FOLDER = sort/
 LI_FOLDER = linked_list/
 OL_FOLDER = operation_linked/
@@ -16,10 +16,6 @@ LIBFT =	-L ./libft -lft
 UTILS =			$(addprefix $(U_FOLDER), \
 		error_utils.c free_utils.c \
 		ft_atoi_error.c init_utils.c \
-)
-
-OPERATIONS =	$(addprefix $(O_FOLDER), \
-		push_utils.c push.c rotate.c reverse_rotate.c swap.c \
 )
 
 SORT = 			$(addprefix $(SO_FOLDER), \
@@ -35,12 +31,12 @@ OPERATIONS_L = $(addprefix $(OL_FOLDER), \
 )
 
 SRC =		$(addprefix $(S_FOLDER), \
-		$(UTILS) $(OPERATIONS) $(SORT) $(LINKED) $(OPERATIONS_L)  \
+		$(UTILS) $(SORT) $(LINKED) $(OPERATIONS_L)  \
 		push_swap.c check_args.c check_string.c \
 )
 
 .c.o:
-	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $(<:%.c=%.o)
 
 OBJ = $(SRC:%.c=%.o)
 
