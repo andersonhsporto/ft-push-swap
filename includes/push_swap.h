@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 22:50:53 by anhigo-s          #+#    #+#             */
-/*   Updated: 2022/01/03 00:14:56 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/03 00:19:11 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,8 @@ void	scan_status(t_swap *data);
 
 //list scan
 t_sort	*array_to_list(t_swap *data);
-void	scan_list(t_sort *info, t_swap *data);
+int		find_min(t_sort *lst);
+int		find_max(t_sort *lst);
 
 //simple
 void	simple_algo(t_swap *data);
@@ -132,8 +133,7 @@ void	init_data(t_swap *data, int argc, char **argv);
 void	scan_fourth(t_swap	*data);
 
 //algo utils
-int		find_min(t_sort *lst);
-int		find_max(t_sort *lst);
+
 int		find_index(t_sort *dst, int number);
 int		lst_scan(t_sort *lst, int nb);
 size_t	ft_sqrt(int number);

@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 03:01:42 by anhigo-s          #+#    #+#             */
-/*   Updated: 2022/01/03 00:02:05 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/03 00:22:07 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	move_fourths(t_swap *data,	t_sort **lst_b, int max);
 void	push_max_top(t_sort **dst);
+size_t	ft_sqrt(int number);
 
 void	merge_sort(t_swap *data)
 {
@@ -84,4 +85,18 @@ void	push_max_top(t_sort **dst)
 			list_rotate_reverse(&(*dst), 1);
 		}
 	}
+}
+
+size_t	ft_sqrt(int number)
+{
+	size_t	i;
+
+	i = 0;
+	while (i * i <= (size_t)number)
+	{
+		if (i * i == (size_t)number)
+			return (i);
+		i++;
+	}
+	return (i - 1);
 }

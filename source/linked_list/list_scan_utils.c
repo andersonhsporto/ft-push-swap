@@ -6,31 +6,11 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 20:21:33 by anhigo-s          #+#    #+#             */
-/*   Updated: 2022/01/03 00:00:07 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/03 00:20:27 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	scan_list(t_sort *info, t_swap *data)
-{
-	t_sort	*temp;
-
-	if (info == NULL)
-		return ;
-	temp = info;
-	data->max = temp->content;
-	data->min = temp->content;
-	while (temp->next != NULL)
-	{
-		if (temp->content > data->max)
-			data->max = temp->content;
-		if (temp->content < data->min)
-			data->min = temp->content;
-		temp = temp->next;
-	}
-	return ;
-}
 
 t_sort	*array_to_list(t_swap *data)
 {
@@ -53,4 +33,75 @@ t_sort	*array_to_list(t_swap *data)
 	scan_fourth(data);
 	free(data->store.stack_a);
 	return (info);
+}
+
+int	find_min(t_sort *lst)
+{
+	int		min;
+	t_sort	*tmp;
+
+	tmp = lst;
+	min = MAX_INT;
+	while (tmp != NULL)
+	{
+		if (min > tmp->content)
+		{
+			min = tmp->content;
+		}
+		tmp = tmp->next;
+	}
+	return (min);
+}
+
+int	find_max(t_sort *lst)
+{
+	int		max;
+	t_sort	*tmp;
+
+	tmp = lst;
+	max = INT_MIN;
+	while (tmp != NULL)
+	{
+		if (max < tmp->content)
+		{
+			max = tmp->content;
+		}
+		tmp = tmp->next;
+	}
+	return (max);
+}
+
+int	find_index(t_sort *dst, int number)
+{
+	t_sort	*tmp;
+	int		index;
+
+	tmp = dst;
+	index = 0;
+	while (tmp != NULL)
+	{
+		if (number == tmp->content)
+		{
+			break ;
+		}
+		tmp = tmp->next;
+		index++;
+	}
+	return (index);
+}
+
+int	lst_scan(t_sort *lst, int number)
+{
+	t_sort	*tmp;
+
+	tmp = lst;
+	while (tmp != NULL)
+	{
+		if (tmp->content < number)
+		{
+			return (1);
+		}
+		tmp = tmp->next;
+	}
+	return (0);
 }

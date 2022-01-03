@@ -19,8 +19,8 @@ UTILS =			$(addprefix $(U_FOLDER), \
 )
 
 SORT = 			$(addprefix $(SO_FOLDER), \
-		algorithm_utils.c scan_number.c \
-		algorithm_simple.c algorithm_medium.c \
+		algorithm_medium.c algorithm_simple.c \
+		scan_number.c \
 )
 
 LINKED = 		$(addprefix $(LI_FOLDER), \

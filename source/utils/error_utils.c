@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 20:01:16 by anhigo-s          #+#    #+#             */
-/*   Updated: 2022/01/02 23:51:28 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/03 00:16:43 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,23 @@ void	print_c_array(char **array, int size)
 	{
 		printf("STRING:%s, POSIÇÂO I:%d\n", array[i], i);
 		i++;
+	}
+	return ;
+}
+
+//remover
+void	printlist(t_sort *info)
+{
+	t_sort	*temp;
+
+	temp = info;
+	while (temp != NULL)
+	{
+		if (temp->next == NULL)
+			printf("%d \n", temp->content);
+		else
+			printf("%d \n", temp->content);
+		temp = temp->next;
 	}
 	return ;
 }
