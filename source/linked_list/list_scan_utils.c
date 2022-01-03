@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 20:21:33 by anhigo-s          #+#    #+#             */
-/*   Updated: 2022/01/03 00:51:51 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/03 17:56:28 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,12 @@ int	find_max(t_sort *lst)
 	return (max);
 }
 
-int	find_index(t_sort *dst, int number)
+int	find_index(t_sort *lst, int number)
 {
 	t_sort	*tmp;
 	int		index;
 
-	tmp = dst;
+	tmp = lst;
 	index = 0;
 	while (tmp != NULL)
 	{

@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 22:08:57 by anhigo-s          #+#    #+#             */
-/*   Updated: 2022/01/03 00:26:37 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/03 17:55:59 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	sort_three(t_sort **list, int status);
 void	sort_cont(t_sort **list, int status);
 void	sort_five(t_swap *data);
-void	push_min_top(t_sort **dst);
+void	push_min_top(t_sort **lst);
 
 void	simple_algo(t_swap *data)
 {
@@ -104,25 +104,25 @@ void	sort_five(t_swap *data)
 	return ;
 }
 
-void	push_min_top(t_sort **dst)
+void	push_min_top(t_sort **lst)
 {
 	int	index;
 
-	index = find_index(*dst, find_min(*dst));
-	if (index < (lstsize_int(*dst) / 2))
+	index = find_index(*lst, find_min(*lst));
+	if (index < (lstsize_int(*lst) / 2))
 	{
 		while (index > 0)
 		{
 			index--;
-			list_rotate(&(*dst), ra);
+			list_rotate(&(*lst), ra);
 		}
 	}
 	else
 	{
-		while (index < (lstsize_int(*dst)))
+		while (index < (lstsize_int(*lst)))
 		{
 			index++;
-			list_rotate_reverse(&(*dst), ra);
+			list_rotate_reverse(&(*lst), ra);
 		}
 	}
 }
