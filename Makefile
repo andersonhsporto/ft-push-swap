@@ -71,8 +71,8 @@ push:clean
 c:clean
 	rm -rf push_swap
 	$(CC) $(CFLAGS) -g $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)
-	./push_swap 1 5 2 4 3
-	ARG="1 5 2 4 3"; ./push_swap $$ARG
+	./push_swap 20000 8 7 1 5 2 4 3 10
+	ARG="20000 8 7 1 5 2 4 3 10"; ./push_swap $$ARG
 
 tri:clean
 	rm -rf push_swap
