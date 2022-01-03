@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 20:00:19 by anhigo-s          #+#    #+#             */
-/*   Updated: 2022/01/02 17:50:59 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/02 23:47:28 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	inspect_string(t_swap *data, int argc, char **argv)
 
 	init_data(data, argc, argv);
 	data->args.argv = ft_split(argv[1], ' ');
-	//print_c_array(data->args.argv, 3);
 	data->args.argc = count_array(data->args.argv);
 	i = 0;
 	while (data->args.argv[i] != 0)

@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 22:50:53 by anhigo-s          #+#    #+#             */
-/*   Updated: 2022/01/02 03:34:47 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/02 23:51:18 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,9 @@ typedef struct s_swap
 	int			median_index;
 }	t_swap;
 
+//check argo
 void	inspect_arg(t_swap *data, int argc, char **argv);
+void	inspect_sort(t_swap *data);
 int		inspect_char(int c);
 
 void	print_error(char *message, int exit_code);
@@ -150,23 +152,33 @@ void	reverse_rotate_r(t_swap *data);
 void	scan_status(t_swap *data);
 
 void	third_number(t_swap *data);
-//remover
-void	print_array(int *array, int size);
 
 //list scan
 t_sort	*array_to_list(t_swap *data);
 void	scan_list(t_sort *info, t_swap *data);
 
-//trilogy
-void	sort_cont(t_sort **list, int status);
-void	sort_three(t_sort **list, int status);
-void	rev_sort_three(t_sort **list, int status);
-void	rev_sort_cont(t_sort **list, int status);
+//simple
 void	simple_algo(t_swap *data);
 
-void	inspect_sort(t_swap *data);
+//algo_medium
+void	merge_sort(t_swap *data);
 
-void	least_worst_algo(t_swap *data);
+//init_utils
+void	bubble_sort(int *tab, int size);
+int		*array_dup(t_swap *data);
+void	init_data(t_swap *data, int argc, char **argv);
+void	scan_fourth(t_swap	*data);
+
+//algo utils
+int		find_min(t_sort *lst);
+int		find_max(t_sort *lst);
+int		find_index(t_sort *dst, int number);
+int		lst_scan(t_sort *lst, int nb);
+size_t	ft_sqrt(int number);
+
+//remover
+void	print_array(int *array, int size);
+
 t_sort	*array_to_list(t_swap *data);
 void	sort_stack(t_sort **list, int status, int max);
 #endif

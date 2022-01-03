@@ -1,46 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algorithm.c                                        :+:      :+:    :+:   */
+/*   algorithm_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 19:47:20 by anhigo-s          #+#    #+#             */
-/*   Updated: 2022/01/02 18:30:58 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/02 23:40:16 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_stack(t_sort **list, int status, int max)
+int	find_min(t_sort *lst)
 {
-	t_sort	*temp;
+	int		min;
+	t_sort	*tmp;
 
-	temp = *list;
-	if (lstsize_int(*list) <= 3)
-		sort_three(&(*list), status);
-	while (!list_is_sorted(*list, 1))
+	tmp = lst;
+	min = MAX_INT;
+	while (tmp != NULL)
 	{
-		if (temp->content > temp->next->content && \
-			temp->content < temp->next->next->content)
+		if (min > tmp->content)
 		{
-			list_swap(*list, status);
+			min = tmp->content;
 		}
-		else if (temp->content > temp->next->content && \
-				temp->content > temp->next->next->content && \
-				temp->content != max)
-		{
-			list_swap(*list, status);
-			list_rotate(&(*list), status);
-		}
-		else
-		{
-			//printf("teste\n");
-			list_rotate_reverse(&(*list), status);
-		}
-		temp = *list;
+		tmp = tmp->next;
 	}
-	return ;
+	return (min);
 }
 
 int	find_max(t_sort *lst)
@@ -78,4 +65,34 @@ int	find_index(t_sort *dst, int number)
 		index++;
 	}
 	return (index);
+}
+
+int	lst_scan(t_sort *lst, int number)
+{
+	t_sort	*tmp;
+
+	tmp = lst;
+	while (tmp != NULL)
+	{
+		if (tmp->content < number)
+		{
+			return (1);
+		}
+		tmp = tmp->next;
+	}
+	return (0);
+}
+
+size_t	ft_sqrt(int number)
+{
+	size_t	i;
+
+	i = 0;
+	while (i * i <= (size_t)number)
+	{
+		if (i * i == (size_t)number)
+			return (i);
+		i++;
+	}
+	return (i - 1);
 }

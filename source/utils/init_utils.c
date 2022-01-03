@@ -6,13 +6,11 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 22:25:54 by anhigo-s          #+#    #+#             */
-/*   Updated: 2022/01/02 02:55:29 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/02 23:50:07 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	scan_fourth(t_swap	*data);
 
 void	bubble_sort(int *tab, int size)
 {
@@ -60,20 +58,6 @@ void	init_data(t_swap *data, int argc, char **argv)
 	data->store.len_stack_b = 0;
 	data->store.stack_b = (int *)malloc(1 * sizeof(int));
 	return ;
-}
-
-size_t	ft_sqrt(int nb)
-{
-	size_t	i;
-
-	i = 0;
-	while (i * i <= (size_t)nb)
-	{
-		if (i * i == (size_t)nb)
-			return (i);
-		i++;
-	}
-	return (i - 1);
 }
 
 void	scan_fourth(t_swap	*data)
