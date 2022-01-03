@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 20:00:19 by anhigo-s          #+#    #+#             */
-/*   Updated: 2022/01/02 23:47:28 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/03 00:28:56 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,9 +89,7 @@ static void	inspect_int(t_swap *data)
 		i++;
 	}
 	data->store.len_stack_a = (data->args.argc);
-	//printf(">>%d \n", data->store.len_stack_a);
 	free_array(data->args.argv);
-	//print_array(data->store.stack_a, data->store.len_stack_a);
 	inspect_sort(data);
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 03:01:42 by anhigo-s          #+#    #+#             */
-/*   Updated: 2022/01/03 00:22:07 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/03 00:25:48 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,9 @@ size_t	ft_sqrt(int number)
 	while (i * i <= (size_t)number)
 	{
 		if (i * i == (size_t)number)
+		{
 			return (i);
+		}
 		i++;
 	}
 	return (i - 1);

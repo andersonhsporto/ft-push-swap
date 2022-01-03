@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 22:08:57 by anhigo-s          #+#    #+#             */
-/*   Updated: 2022/01/03 00:21:08 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/03 00:26:37 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,13 @@ void	simple_algo(t_swap *data)
 {
 	data->stk_a = array_to_list(data);
 	if (data->args.argc <= 3)
+	{
 		sort_three(&data->stk_a, e_stack_a);
+	}
 	if (data->args.argc > 3)
+	{
 		sort_five(data);
+	}
 	lstdelete_int(data->stk_a);
 	free(data->grp_max);
 	return ;
