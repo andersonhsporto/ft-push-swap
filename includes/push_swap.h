@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 22:50:53 by anhigo-s          #+#    #+#             */
-/*   Updated: 2022/01/03 00:53:16 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/03 01:02:10 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ enum e_rotate{
 enum e_rrotate{
 	rra,
 	rrb,
-	rrr
+	rrr,
 };
 
 enum e_stack_status{
