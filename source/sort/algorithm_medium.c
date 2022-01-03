@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 03:01:42 by anhigo-s          #+#    #+#             */
-/*   Updated: 2022/01/03 00:25:48 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/03 00:43:31 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,9 @@ void	merge_sort(t_swap *data)
 
 void	move_fourths(t_swap *data,	t_sort **lst_b, int max)
 {
-	static int	size;
-	t_sort		*tmp;
+	t_sort	*tmp;
 
 	tmp = data->stk_a;
-	if (!size)
-		size = data->store.len_stack_a / ft_sqrt(data->store.len_stack_a);
 	while (lst_scan(data->stk_a, max))
 	{
 		if (tmp->content <= max)

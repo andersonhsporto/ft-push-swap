@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 22:50:53 by anhigo-s          #+#    #+#             */
-/*   Updated: 2022/01/03 00:19:11 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/03 00:53:16 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,15 +66,11 @@ typedef struct s_pile
 
 typedef struct s_swap
 {
-	char		**arg_string;
 	t_arguments	args;
 	t_pile		store;
 	t_sort		*stk_a;
 	int			*grp_max;
 	int			max;
-	int			min;
-	int			size;
-	int			number_group;
 }	t_swap;
 
 //check argo
@@ -95,23 +91,6 @@ int		ft_atoi_error(const char *str, t_swap *data);
 //check_string
 void	inspect_string(t_swap *data, int argc, char **argv);
 
-//push_operations
-void	push(t_swap *data, int operation);
-
-//rotate
-void	rotate_a(t_swap *data, int status);
-void	rotate_b(t_swap *data, int status);
-
-//swap
-void	swap_a(t_swap *data);
-void	swap_b(t_swap *data);
-void	swap_ss(t_swap *data);
-
-//reverse_rotate
-void	reverse_rotate_a(t_swap *data, int status);
-void	reverse_rotate_b(t_swap *data, int status);
-void	reverse_rotate_r(t_swap *data);
-
 //scan
 void	scan_status(t_swap *data);
 
@@ -119,12 +98,15 @@ void	scan_status(t_swap *data);
 t_sort	*array_to_list(t_swap *data);
 int		find_min(t_sort *lst);
 int		find_max(t_sort *lst);
+int		lst_scan(t_sort *lst, int nb);
+int		find_index(t_sort *dst, int number);
 
 //simple
 void	simple_algo(t_swap *data);
 
 //algo_medium
 void	merge_sort(t_swap *data);
+size_t	ft_sqrt(int number);
 
 //init_utils
 void	bubble_sort(int *tab, int size);
@@ -132,13 +114,7 @@ int		*array_dup(t_swap *data);
 void	init_data(t_swap *data, int argc, char **argv);
 void	scan_fourth(t_swap	*data);
 
-//algo utils
-
-int		find_index(t_sort *dst, int number);
-int		lst_scan(t_sort *lst, int nb);
-size_t	ft_sqrt(int number);
-
 //remover
 void	print_array(int *array, int size);
-
+void	printlist(t_sort *info);
 #endif

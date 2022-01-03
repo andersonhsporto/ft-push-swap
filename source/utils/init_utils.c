@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 22:25:54 by anhigo-s          #+#    #+#             */
-/*   Updated: 2022/01/03 00:02:32 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/03 00:46:25 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ void	scan_fourth(t_swap	*data)
 	sorted = array_dup(data);
 	bubble_sort(sorted, data->store.len_stack_a);
 	size = ft_sqrt(data->store.len_stack_a);
-	data->number_group = size;
 	data->grp_max = (int *)malloc(sizeof(int) * (size + 1));
 	data->grp_max[size] = data->max;
 	i = 0;
