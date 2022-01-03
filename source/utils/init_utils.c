@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 22:25:54 by anhigo-s          #+#    #+#             */
-/*   Updated: 2022/01/02 23:50:07 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/03 00:02:32 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,6 @@ void	init_data(t_swap *data, int argc, char **argv)
 {
 	data->args.argc = argc;
 	data->args.argv = argv;
-	data->store.len_stack_b = 0;
-	data->store.stack_b = (int *)malloc(1 * sizeof(int));
 	return ;
 }
 
@@ -71,14 +69,14 @@ void	scan_fourth(t_swap	*data)
 	bubble_sort(sorted, data->store.len_stack_a);
 	size = ft_sqrt(data->store.len_stack_a);
 	data->number_group = size;
-	data->merge.grp_max = (int *)malloc(sizeof(int) * (size + 1));
-	data->merge.grp_max[size] = data->max;
+	data->grp_max = (int *)malloc(sizeof(int) * (size + 1));
+	data->grp_max[size] = data->max;
 	i = 0;
 	j = 1;
 	while (j < (int)size)
 	{
 		i = i + (data->store.len_stack_a / size);
-		data->merge.grp_max[j] = sorted[i - 1];
+		data->grp_max[j] = sorted[i - 1];
 		j++;
 	}
 	free(sorted);

@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 03:01:42 by anhigo-s          #+#    #+#             */
-/*   Updated: 2022/01/02 23:43:24 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/03 00:02:05 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	merge_sort(t_swap *data)
 	{
 		while (index < (ft_sqrt(data->store.len_stack_a) + 1))
 		{
-			move_fourths(data, &stk_b, data->merge.grp_max[index]);
+			move_fourths(data, &stk_b, data->grp_max[index]);
 			index++;
 		}
 		while (stk_b != NULL)
@@ -36,7 +36,7 @@ void	merge_sort(t_swap *data)
 			list_push(&stk_b, &data->stk_a, pa);
 		}
 	}
-	free(data->merge.grp_max);
+	free(data->grp_max);
 	lstdelete_int(data->stk_a);
 }
 

@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 22:50:53 by anhigo-s          #+#    #+#             */
-/*   Updated: 2022/01/02 23:51:18 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/03 00:14:56 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,23 +48,8 @@ enum e_rrotate{
 	rrr
 };
 
-enum e_status{
-	status_1,
-	status_2,
-	status_3,
-	status_4,
-	status_5
-};
-
 enum e_stack_status{
 	e_stack_a,
-	e_stack_b
-};
-
-enum e_stack{
-	stack_0,
-	a_stack,
-	b_stack,
 };
 
 typedef struct s_arguments
@@ -77,37 +62,19 @@ typedef struct s_pile
 {
 	int		*stack_a;
 	int		len_stack_a;
-	int		*stack_b;
-	int		len_stack_b;
-	int		*temp_number;
 }	t_pile;
-
-typedef struct s_utils
-{
-	int		max;
-	int		min;
-}	t_utils;
-
-typedef struct s_index
-{
-	int	*grp_min;
-	int	*grp_max;
-}	t_index;
 
 typedef struct s_swap
 {
 	char		**arg_string;
 	t_arguments	args;
 	t_pile		store;
-	t_utils		value;
-	t_index		merge;
 	t_sort		*stk_a;
+	int			*grp_max;
 	int			max;
 	int			min;
 	int			size;
 	int			number_group;
-	int			median;
-	int			median_index;
 }	t_swap;
 
 //check argo
@@ -115,24 +82,21 @@ void	inspect_arg(t_swap *data, int argc, char **argv);
 void	inspect_sort(t_swap *data);
 int		inspect_char(int c);
 
+//error_utils
 void	print_error(char *message, int exit_code);
 
+//free_util
 void	free_array(char **array);
 void	free_exit(t_swap *data);
 
+//ft_atoi_error
 int		ft_atoi_error(const char *str, t_swap *data);
-
-void	init_data(t_swap *data, int argc, char **argv);
-
-//operations
-void	push(t_swap *data, int operation);
 
 //check_string
 void	inspect_string(t_swap *data, int argc, char **argv);
 
-//utils
-void	move_stack_a(t_swap *data);
-void	move_stack_b(t_swap *data);
+//push_operations
+void	push(t_swap *data, int operation);
 
 //rotate
 void	rotate_a(t_swap *data, int status);
@@ -150,8 +114,6 @@ void	reverse_rotate_r(t_swap *data);
 
 //scan
 void	scan_status(t_swap *data);
-
-void	third_number(t_swap *data);
 
 //list scan
 t_sort	*array_to_list(t_swap *data);
@@ -179,6 +141,4 @@ size_t	ft_sqrt(int number);
 //remover
 void	print_array(int *array, int size);
 
-t_sort	*array_to_list(t_swap *data);
-void	sort_stack(t_sort **list, int status, int max);
 #endif
