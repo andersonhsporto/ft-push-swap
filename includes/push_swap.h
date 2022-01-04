@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 22:50:53 by anhigo-s          #+#    #+#             */
-/*   Updated: 2022/01/03 01:02:10 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/03 22:41:29 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ void	free_exit(t_swap *data);
 
 //ft_atoi_error
 int		ft_atoi_error(const char *str, t_swap *data);
+int		ft_isspace(int c);
 
 //check_string
 void	inspect_string(t_swap *data, int argc, char **argv);

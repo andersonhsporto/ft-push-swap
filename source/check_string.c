@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 20:00:19 by anhigo-s          #+#    #+#             */
-/*   Updated: 2022/01/03 00:28:56 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/03 22:35:10 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,34 @@ static int	count_array(char **args);
 static void	inspect_duplicates(t_swap *data);
 static void	inspect_int(t_swap *data);
 
+void	inspect_spaces(char **argv)
+{
+	int	index;
+	int	temp;
+
+	index = 0;
+	temp = 0;
+	while (argv[1][index] != '\0')
+	{
+		if (ft_isspace(argv[1][index]) == 0)
+		{
+			temp++;
+		}
+		index++;
+	}
+	if (temp == 0)
+	{
+		exit(EXIT_SUCCESS);
+	}
+	return ;
+}
+
 void	inspect_string(t_swap *data, int argc, char **argv)
 {
 	int	i;
 	int	j;
 
+	inspect_spaces(argv);
 	init_data(data, argc, argv);
 	data->args.argv = ft_split(argv[1], ' ');
 	data->args.argc = count_array(data->args.argv);

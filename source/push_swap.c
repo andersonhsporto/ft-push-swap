@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 23:09:09 by anhigo-s          #+#    #+#             */
-/*   Updated: 2022/01/02 03:50:21 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/03 22:20:17 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(int argc, char **argv)
 {
 	t_swap	data;
 
-	if (argc == 2)
+	if (argc == 2 && ft_strlen(argv[1]) != 0)
 	{
 		inspect_string(&data, argc, argv);
 		scan_status(&data);
