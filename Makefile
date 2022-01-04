@@ -1,7 +1,7 @@
 NAME = push_swap
 
 CC		=	gcc
-CFLAGS	=	-Wall -Wextra -g #-Werror
+CFLAGS	=	-Wall -Wextra -Werror
 INCLUDE =	-I ./includes
 
 S_FOLDER  = ./source/

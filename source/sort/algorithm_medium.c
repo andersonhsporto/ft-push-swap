@@ -6,14 +6,14 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 03:01:42 by anhigo-s          #+#    #+#             */
-/*   Updated: 2022/01/03 17:55:37 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/03 22:13:20 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 void	move_fourths(t_swap *data,	t_sort **lst_b, int max);
-void	push_max_top(t_sort **lst);
+void	push_max_top(t_sort **dst);
 
 void	merge_sort(t_swap *data)
 {
@@ -60,25 +60,25 @@ void	move_fourths(t_swap *data,	t_sort **lst_b, int max)
 	return ;
 }
 
-void	push_max_top(t_sort **lst)
+void	push_max_top(t_sort **dst)
 {
 	int	index;
 
-	index = find_index(*lst, find_max(*lst));
-	if (index < (lstsize_int(*lst) / 2))
+	index = find_index(*dst, find_max(*dst));
+	if (index < (lstsize_int(*dst) / 2))
 	{
 		while (index > 0)
 		{
 			index--;
-			list_rotate(&(*lst), 1);
+			list_rotate(&(*dst), 1);
 		}
 	}
 	else
 	{
-		while (index < (lstsize_int(*lst)))
+		while (index < (lstsize_int(*dst)))
 		{
 			index++;
-			list_rotate_reverse(&(*lst), 1);
+			list_rotate_reverse(&(*dst), 1);
 		}
 	}
 }
