@@ -1,6 +1,7 @@
 # ft-push-swap
 ![norminette](https://github.com/andersonhsporto/ft-push-swap/workflows/norminette/badge.svg)
 ### O objetivo deste projeto é ordenar números inteiros em uma stack utilizando um conjunto limitado de operações utilizando C.
+<hr>
 ## Funções Permitidas
 
 As funções permitidas no escopo deste projeto são:
