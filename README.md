@@ -3,8 +3,6 @@
 ### O objetivo deste projeto é ordenar números inteiros em uma stack utilizando um conjunto limitado de operações utilizando C.
 ## Funções Permitidas
 
-
-
 As funções permitidas no escopo deste projeto são:
 ```
 • write
@@ -20,3 +18,8 @@ Compile o programa utilizando **make**, o programa pode ser executado da seguint
 
  ARG=`ruby -e "puts (1..100).to_a.shuffle.join(' ')"`; ./push_swap $ARG
 ```
+## Visualização
+Execução utilizando 500 números aleatórios: [push_swap_visualizer](https://github.com/o-reo/push_swap_visualizer). 
+<br>
+<br>
+![mandatory](https://github.com/andersonhsporto/ft-push-swap/blob/main/gif/vis.gif)
