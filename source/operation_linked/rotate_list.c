@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 14:43:41 by anhigo-s          #+#    #+#             */
-/*   Updated: 2021/12/10 18:56:10 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/04 23:17:51 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,5 @@ void	list_rotate(t_sort **info, int status)
 		if (status == rb)
 			ft_putendl_fd("rb", 1);
 	}
-	return ;
-}
-
-void	list_rotate_rr(t_sort **stack_a, t_sort **stack_b)
-{
-	list_rotate(stack_a, rr);
-	list_rotate(stack_b, rr);
-	ft_putendl_fd("rr", 1);
 	return ;
 }

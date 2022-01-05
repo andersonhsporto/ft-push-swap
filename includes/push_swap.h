@@ -5,117 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/20 22:50:53 by anhigo-s          #+#    #+#             */
-/*   Updated: 2022/01/03 22:41:29 by anhigo-s         ###   ########.fr       */
+/*   Created: 2021/12/10 13:07:28 by anhigo-s          #+#    #+#             */
+/*   Updated: 2022/01/04 23:16:19 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef LISTS_H
+# define LISTS_H
 
-//REMOVER AO FINAL
-# include <stdio.h>
-# include <math.h>
-
-# include "lists.h"
-
-# include "../libft/libft.h"
-
-# define MAX_INT 2147483647
-# define MIN_INT 2147483648
-# define INT_MIN -2147483648
-
-enum e_swap{
-	sa,
-	sb,
-	ss
-};
-
-enum e_push{
-	pa,
-	pb
-};
-
-enum e_rotate{
-	ra,
-	rb,
-	rr
-};
-
-enum e_rrotate{
-	rra,
-	rrb,
-	rrr,
-};
-
-enum e_stack_status{
-	e_stack_a,
-};
-
-typedef struct s_arguments
+typedef struct s_sort
 {
-	int		argc;
-	char	**argv;
-}	t_arguments;
+	int				content;
+	struct s_sort	*next;
+}	t_sort;
 
-typedef struct s_pile
-{
-	int		*stack_a;
-	int		len_stack_a;
-}	t_pile;
+t_sort	*lstnew_int(int content);
+void	lstadd_front_int(t_sort **lst, t_sort *new);
+int		lstsize_int(t_sort *lst);
+t_sort	*lstlast_int(t_sort *lst);
+void	lstadd_back_int(t_sort **lst, t_sort *new);
+void	lstdelete_int(t_sort *lst);
 
-typedef struct s_swap
-{
-	t_arguments	args;
-	t_pile		store;
-	t_sort		*stk_a;
-	int			*grp_max;
-	int			max;
-}	t_swap;
+void	list_push(t_sort **src, t_sort **dst, int status);
+void	list_rotate_reverse(t_sort **info, int status);
+void	list_rotate(t_sort **info, int status);
+void	list_swap(t_sort *info, int status);
 
-//check argo
-void	inspect_arg(t_swap *data, int argc, char **argv);
-void	inspect_sort(t_swap *data);
-int		inspect_char(int c);
-
-//error_utils
-void	print_error(char *message, int exit_code);
-
-//free_util
-void	free_array(char **array);
-void	free_exit(t_swap *data);
-
-//ft_atoi_error
-int		ft_atoi_error(const char *str, t_swap *data);
-int		ft_isspace(int c);
-
-//check_string
-void	inspect_string(t_swap *data, int argc, char **argv);
-
-//scan
-void	scan_status(t_swap *data);
-
-//list scan
-t_sort	*array_to_list(t_swap *data);
-int		find_min(t_sort *lst);
-int		find_max(t_sort *lst);
-int		lst_scan(t_sort *lst, int nb);
-int		find_index(t_sort *dst, int number);
-
-//simple
-void	simple_algo(t_swap *data);
-
-//algo_medium
-void	merge_sort(t_swap *data);
-size_t	ft_sqrt(int number);
-
-//init_utils
-void	bubble_sort(int *tab, int size);
-int		*array_dup(t_swap *data);
-void	init_data(t_swap *data, int argc, char **argv);
-void	scan_fourth(t_swap	*data);
-
-//remover
-void	print_array(int *array, int size);
-void	printlist(t_sort *info);
+int		list_is_sorted(t_sort *info, int status);
 #endif
