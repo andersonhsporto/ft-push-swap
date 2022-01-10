@@ -31,7 +31,7 @@ OPERATIONS_L = $(addprefix $(OL_FOLDER), \
 		swap_list.c reverse_rotate_list.c rotate_list.c push_list.c \
 )
 
-SRC =		$(addprefix $(S_FOLDER), \
+SRC =			$(addprefix $(S_FOLDER), \
 		$(UTILS) $(SORT) $(LINKED) $(OPERATIONS_L)  \
 		push_swap.c check_args.c check_string.c \
 )
@@ -101,14 +101,3 @@ sanitize:clean
 
 test:re
 	python3 pyviz.py `ruby -e "puts (0..100).to_a.shuffle.join(' ')"`
-
-big:clean
-	rm -rf push_swap
-	$(CC) $(CFLAGS) -g $(INCLUDE) $(SRC) $(LIBFT) -o $(NAME)
-	./push_swap 0 5000 1 4 2000 10 11 3 2 7 100 200 300 400
-
-#ARG="0 5000 1 4 2000 10 11 3 2 7 100 200 300 400"; ./push_swap $ARG | ./checker_linux $ARG
-#ARG=`ruby -e "puts (1..100).to_a.shuffle.join(' ')"`; ./push_swap $ARG
-#python3 pyviz.py `ruby -e "puts (1..100).to_a.shuffle.join(' ')"`
-
-#./push_swap 0 5000 1 4 2000 10 11 3 2 7 100 200 300 400
