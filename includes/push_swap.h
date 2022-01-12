@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 22:50:53 by anhigo-s          #+#    #+#             */
-/*   Updated: 2022/01/04 23:50:18 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/12 16:35:02 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	free_exit(t_swap *data);
 int		ft_atoi_error(const char *str, t_swap *data);
 int		ft_isspace(int c);
 
-void	inspect_string(t_swap *data, int argc, char **argv);
+void	inspect_string(t_swap *data, char **argv);
 
 void	scan_status(t_swap *data);
 
@@ -99,5 +99,5 @@ size_t	ft_sqrt(int number);
 void	bubble_sort(int *tab, int size);
 int		*array_dup(t_swap *data);
 void	init_data(t_swap *data, int argc, char **argv);
-void	scan_fourth(t_swap	*data);
+void	scan_groups(t_swap	*data);
 #endif

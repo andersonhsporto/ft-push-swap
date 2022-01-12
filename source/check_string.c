@@ -6,17 +6,45 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 20:00:19 by anhigo-s          #+#    #+#             */
-/*   Updated: 2022/01/03 22:35:10 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/12 16:34:37 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static void	inspect_spaces(char **argv);
 static int	count_array(char **args);
 static void	inspect_duplicates(t_swap *data);
 static void	inspect_int(t_swap *data);
 
-void	inspect_spaces(char **argv)
+void	inspect_string(t_swap *data, char **argv)
+{
+	int	i;
+	int	j;
+
+	inspect_spaces(argv);
+	data->args.argv = ft_split(argv[1], ' ');
+	data->args.argc = count_array(data->args.argv);
+	i = 0;
+	while (data->args.argv[i] != 0)
+	{
+		j = 0;
+		while (data->args.argv[i][j])
+		{
+			if (inspect_char(data->args.argv[i][j]))
+			{
+				free_array(data->args.argv);
+				print_error("Error", EXIT_FAILURE);
+			}
+			j++;
+		}
+		i++;
+	}
+	inspect_duplicates(data);
+	return ;
+}
+
+static void	inspect_spaces(char **argv)
 {
 	int	index;
 	int	temp;
@@ -35,33 +63,6 @@ void	inspect_spaces(char **argv)
 	{
 		exit(EXIT_SUCCESS);
 	}
-	return ;
-}
-
-void	inspect_string(t_swap *data, int argc, char **argv)
-{
-	int	i;
-	int	j;
-
-	inspect_spaces(argv);
-	init_data(data, argc, argv);
-	data->args.argv = ft_split(argv[1], ' ');
-	data->args.argc = count_array(data->args.argv);
-	i = 0;
-	while (data->args.argv[i] != 0)
-	{
-		j = 0;
-		while (data->args.argv[i][j])
-		{
-			if (inspect_char(data->args.argv[i][j]))
-			{
-				print_error("Error", EXIT_FAILURE);
-			}
-			j++;
-		}
-		i++;
-	}
-	inspect_duplicates(data);
 	return ;
 }
 
@@ -90,6 +91,7 @@ static void	inspect_duplicates(t_swap *data)
 		{
 			if (ft_strcmp((data->args.argv[i]), data->args.argv[j]) == 0)
 			{
+				free_array(data->args.argv);
 				print_error("Error", EXIT_FAILURE);
 			}
 			j++;
