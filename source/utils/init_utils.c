@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 22:25:54 by anhigo-s          #+#    #+#             */
-/*   Updated: 2022/01/03 00:46:25 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/12 01:45:11 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	init_data(t_swap *data, int argc, char **argv)
 	return ;
 }
 
-void	scan_fourth(t_swap	*data)
+void	scan_groups(t_swap	*data)
 {
 	int		*sorted;
 	size_t	size;

@@ -6,7 +6,7 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 22:56:10 by anhigo-s          #+#    #+#             */
-/*   Updated: 2022/01/03 00:23:55 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/12 17:48:23 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ void	lstdelete_int(t_sort *lst)
 	free(lst);
 }
 
-int	list_is_sorted(t_sort *info, int status)
+int	list_is_sorted(t_sort *src, int status)
 {
 	t_sort	*temp;
 
-	if (info == NULL)
+	if (src == NULL)
 		return (1);
-	temp = info;
+	temp = src;
 	while (temp->next != NULL)
 	{
 		if ((temp->content > temp->next->content) && (status == 1))

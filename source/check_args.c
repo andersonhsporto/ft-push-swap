@@ -6,13 +6,12 @@
 /*   By: anhigo-s <anhigo-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 00:21:34 by anhigo-s          #+#    #+#             */
-/*   Updated: 2022/01/03 00:00:15 by anhigo-s         ###   ########.fr       */
+/*   Updated: 2022/01/12 17:08:59 by anhigo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int			inspect_char(int c);
 static void	inspect_duplicates(t_swap *data);
 static void	inspect_int(t_swap *data);
 

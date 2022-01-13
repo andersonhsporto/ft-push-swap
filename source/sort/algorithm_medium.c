@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	move_fourths(t_swap *data,	t_sort **lst_b, int max);
+void	move_groups(t_swap *data,	t_sort **lst_b, int max);
 void	push_max_top(t_sort **dst);
 
 void	merge_sort(t_swap *data)
@@ -27,7 +27,7 @@ void	merge_sort(t_swap *data)
 	{
 		while (index < (ft_sqrt(data->store.len_stack_a) + 1))
 		{
-			move_fourths(data, &stk_b, data->grp_max[index]);
+			move_groups(data, &stk_b, data->grp_max[index]);
 			index++;
 		}
 		while (stk_b != NULL)
@@ -40,7 +40,7 @@ void	merge_sort(t_swap *data)
 	lstdelete_int(data->stk_a);
 }
 
-void	move_fourths(t_swap *data,	t_sort **lst_b, int max)
+void	move_groups(t_swap *data,	t_sort **lst_b, int max)
 {
 	t_sort	*tmp;
 
