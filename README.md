@@ -21,7 +21,7 @@ Compile o programa utilizando **make**, o programa pode ser executado da seguint
  ARG=`ruby -e "puts (1..100).to_a.shuffle.join(' ')"`; ./push_swap $ARG
 ```
 ## Visualização
-Execução com 100 números aleatórios: [push_swap_visualizer](https://github.com/o-reo/push_swap_visualizer). 
+Execução com 100 números aleatórios: *utilizando o visualizador em python [push_swap_visualizer](https://github.com/o-reo/push_swap_visualizer). 
 <br>
 <br>
 ![mandatory](https://github.com/andersonhsporto/ft-push-swap/blob/main/gif/vis.gif)
